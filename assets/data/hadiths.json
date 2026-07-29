@@ -1,0 +1,52 @@
+[
+  {
+    "id": "hadith-1",
+    "collection": "Bukhari",
+    "bookNumber": 1,
+    "hadithNumber": 1,
+    "arabic": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
+    "english": "Les actions ne valent que par leurs intentions.",
+    "narrator": "Omar ibn Al-Khattab",
+    "theme": "Foi"
+  },
+  {
+    "id": "hadith-2",
+    "collection": "Muslim",
+    "bookNumber": 1,
+    "hadithNumber": 45,
+    "arabic": "مَنْ حَسُنَ إِسْلَامُهُ",
+    "english": "Parmi les signes de la perfection de la foi d'une personne figure le fait qu'elle laisse ce qui ne la concerne pas.",
+    "narrator": "Abu Hurayrah",
+    "theme": "Comportement"
+  },
+  {
+    "id": "hadith-3",
+    "collection": "Bukhari",
+    "bookNumber": 8,
+    "hadithNumber": 16,
+    "arabic": "الدِّينُ النَّصِيحَةُ",
+    "english": "La religion, c'est le conseil sincère.",
+    "narrator": "Tamim Ad-Dari",
+    "theme": "Foi"
+  },
+  {
+    "id": "hadith-4",
+    "collection": "Muslim",
+    "bookNumber": 32,
+    "hadithNumber": 6219,
+    "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ",
+    "english": "Aucun de vous ne croira vraiment tant qu'il n'aimera pour son frère ce qu'il aime pour lui-même.",
+    "narrator": "Anas ibn Malik",
+    "theme": "Fraternité"
+  },
+  {
+    "id": "hadith-5",
+    "collection": "Tirmidhi",
+    "bookNumber": 27,
+    "hadithNumber": 2516,
+    "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ",
+    "english": "Crains Allah où que tu sois, suis la mauvaise action par une bonne qui l'efface, et comportes-toi noblement envers les gens.",
+    "narrator": "Abu Dharr",
+    "theme": "Comportement"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "morning-1",
+    "category": "morning",
+    "arabic": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ",
+    "transliteration": "Asbahna wa asbahal mulku lillah",
+    "translation": "Nous voici au matin et la souveraineté appartient à Allah.",
+    "reference": "Muslim 2723"
+  },
+  {
+    "id": "evening-1",
+    "category": "evening",
+    "arabic": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ",
+    "transliteration": "Amsayna wa amsal mulku lillah",
+    "translation": "Nous voici au soir et la souveraineté appartient à Allah.",
+    "reference": "Muslim 2723"
+  },
+  {
+    "id": "travel-1",
+    "category": "travel",
+    "arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا",
+    "transliteration": "Subhanalladhi sakhkhara lana hadha",
+    "translation": "Gloire à Celui qui a mis ceci à notre service.",
+    "reference": "Coran 43:13"
+  },
+  {
+    "id": "illness-1",
+    "category": "illness",
+    "arabic": "اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ",
+    "transliteration": "Allahumma Rabban-nas, adhhibil ba's",
+    "translation": "Ô Allah, Seigneur des hommes, enlève le mal.",
+    "reference": "Bukhari 5672"
+  },
+  {
+    "id": "food-1",
+    "category": "food",
+    "arabic": "بِسْمِ اللَّهِ",
+    "transliteration": "Bismillah",
+    "translation": "Au nom d'Allah.",
+    "reference": "Abu Dawud 3767"
+  },
+  {
+    "id": "sleep-1",
+    "category": "sleep",
+    "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+    "transliteration": "Bismika Allahumma amutu wa ahya",
+    "translation": "En Ton nom, ô Allah, je meurs et je vis.",
+    "reference": "Bukhari 6324"
+  },
+  {
+    "id": "mosque-1",
+    "category": "mosque",
+    "arabic": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+    "transliteration": "Allahummaftah li abwaba rahmatik",
+    "translation": "Ô Allah, ouvre-moi les portes de Ta miséricorde.",
+    "reference": "Muslim 713"
+  },
+  {
+    "id": "protection-1",
+    "category": "protection",
+    "arabic": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ",
+    "transliteration": "Bismillahil-ladhi la yadurru ma'asmihi shay'un",
+    "translation": "Au nom d'Allah, avec le nom duquel rien sur terre ni au ciel ne peut nuire.",
+    "reference": "Abu Dawud 5088"
+  },
+  {
+    "id": "forgiveness-1",
+    "category": "forgiveness",
+    "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+    "transliteration": "Astaghfirullah wa atubu ilayh",
+    "translation": "Je demande pardon à Allah et je me repens à Lui.",
+    "reference": "Bukhari 6307"
+  },
+  {
+    "id": "misc-1",
+    "category": "misc",
+    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً",
+    "transliteration": "Rabbana atina fid-dunya hasanah",
+    "translation": "Seigneur, accorde-nous une belle part ici-bas.",
+    "reference": "Coran 2:201"
+  }
+]
