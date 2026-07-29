@@ -17,8 +17,14 @@ import '../screens/hadith/hadith_detail_screen.dart';
 import '../screens/calendar/calendar_screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/settings/settings_screen.dart';
+import '../screens/seerah/seerah_screen.dart';
+import '../screens/seerah/seerah_detail_screen.dart';
+import '../screens/divine_names/divine_names_screen.dart';
+import '../screens/divine_names/divine_name_detail_screen.dart';
 import '../models/dua_model.dart';
 import '../models/hadith_model.dart';
+import '../models/seerah_model.dart';
+import '../models/divine_name_model.dart';
 
 /// Clés de navigation pour le shell principal.
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -118,6 +124,32 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/settings',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, __) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: '/seerah',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, __) => const SeerahScreen(),
+      ),
+      GoRoute(
+        path: '/seerah/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final extra = state.extra as SeerahEvent;
+          return SeerahDetailScreen(event: extra);
+        },
+      ),
+      GoRoute(
+        path: '/divine-names',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, __) => const DivineNamesScreen(),
+      ),
+      GoRoute(
+        path: '/divine-name/:number',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final extra = state.extra as DivineName;
+          return DivineNameDetailScreen(name: extra);
+        },
       ),
     ],
   );

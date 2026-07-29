@@ -3,14 +3,18 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 
+import '../models/divine_name_model.dart';
 import '../models/dua_model.dart';
 import '../models/hadith_model.dart';
+import '../models/seerah_model.dart';
 
-/// Charge les données JSON locales (douas, hadiths, citations).
+/// Charge les données JSON locales (douas, hadiths, citations, seerah, noms divins).
 class LocalDataService {
   List<Dua>? _duas;
   List<Hadith>? _hadiths;
   List<Map<String, String>>? _quotes;
+  List<SeerahEvent>? _seerah;
+  List<DivineName>? _divineNames;
 
   Future<List<Dua>> getDuas() async {
     if (_duas != null) return _duas!;
@@ -51,5 +55,24 @@ class LocalDataService {
       type: quote['type'] == 'hadith' ? QuoteType.hadith : QuoteType.quran,
       arabic: quote['arabic'],
     );
+  }
+
+  Future<List<SeerahEvent>> getSeerahEvents() async {
+    if (_seerah != null) return _seerah!;
+    final jsonString = await rootBundle.loadString('assets/data/seerah.json');
+    final list = json.decode(jsonString) as List<dynamic>;
+    _seerah =
+        list.map((e) => SeerahEvent.fromJson(e as Map<String, dynamic>)).toList();
+    return _seerah!;
+  }
+
+  Future<List<DivineName>> getDivineNames() async {
+    if (_divineNames != null) return _divineNames!;
+    final jsonString =
+        await rootBundle.loadString('assets/data/names_of_allah.json');
+    final list = json.decode(jsonString) as List<dynamic>;
+    _divineNames =
+        list.map((e) => DivineName.fromJson(e as Map<String, dynamic>)).toList();
+    return _divineNames!;
   }
 }

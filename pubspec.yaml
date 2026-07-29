@@ -44,3 +44,5 @@ flutter:
     - assets/data/duas.json
     - assets/data/hadiths.json
     - assets/data/quotes.json
+    - assets/data/seerah.json
+    - assets/data/names_of_allah.json

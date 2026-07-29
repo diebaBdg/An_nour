@@ -1,0 +1,695 @@
+[
+  {
+    "number": 1,
+    "arabic": "الرَّحْمَنُ",
+    "transliteration": "Ar-Rahman",
+    "translation": "Le Tout Miséricordieux",
+    "meaning": "Celui dont la miséricorde s'étend à toute la création, croyants et mécréants, en cette vie."
+  },
+  {
+    "number": 2,
+    "arabic": "الرَّحِيمُ",
+    "transliteration": "Ar-Rahim",
+    "translation": "Le Très Miséricordieux",
+    "meaning": "Celui qui accorde Sa miséricorde aux croyants en particulier, en cette vie et dans l'au-delà."
+  },
+  {
+    "number": 3,
+    "arabic": "الْمَلِكُ",
+    "transliteration": "Al-Malik",
+    "translation": "Le Souverain",
+    "meaning": "Le véritable Roi, Celui qui possède toute chose et règne sans associé."
+  },
+  {
+    "number": 4,
+    "arabic": "الْقُدُّوسُ",
+    "transliteration": "Al-Quddus",
+    "translation": "Le Pur, le Saint",
+    "meaning": "Celui qui est exempt de tout défaut, imperfection et attributs de la création."
+  },
+  {
+    "number": 5,
+    "arabic": "السَّلَامُ",
+    "transliteration": "As-Salam",
+    "translation": "La Paix, le Salut",
+    "meaning": "Celui qui est préservé de toute imperfection et qui accorde la paix à Ses créatures."
+  },
+  {
+    "number": 6,
+    "arabic": "الْمُؤْمِنُ",
+    "transliteration": "Al-Mu'min",
+    "translation": "Le Fidèle, le Sécurisant",
+    "meaning": "Celui qui accorde la sécurité et la foi, et qui est Lui-même à l'abri de toute injustice."
+  },
+  {
+    "number": 7,
+    "arabic": "الْمُهَيْمِنُ",
+    "transliteration": "Al-Muhaymin",
+    "translation": "Le Préservateur, le Témoin",
+    "meaning": "Celui qui observe et protège toute chose, le Surveillant de l'univers."
+  },
+  {
+    "number": 8,
+    "arabic": "الْعَزِيزُ",
+    "transliteration": "Al-Aziz",
+    "translation": "Le Tout-Puissant",
+    "meaning": "Celui qui est invincible et que rien ne peut vaincre ou dominer."
+  },
+  {
+    "number": 9,
+    "arabic": "الْجَبَّارُ",
+    "transliteration": "Al-Jabbar",
+    "translation": "Le Contraignant, le Réparateur",
+    "meaning": "Celui dont la volonté s'impose et qui répare les cœurs brisés."
+  },
+  {
+    "number": 10,
+    "arabic": "الْمُتَكَبِّرُ",
+    "transliteration": "Al-Mutakabbir",
+    "translation": "Le Suprême, le Grand",
+    "meaning": "Celui qui s'élève au-dessus de tout, digne de la plus grande majesté."
+  },
+  {
+    "number": 11,
+    "arabic": "الْخَالِقُ",
+    "transliteration": "Al-Khaliq",
+    "translation": "Le Créateur",
+    "meaning": "Celui qui fait exister toute chose à partir du néant."
+  },
+  {
+    "number": 12,
+    "arabic": "الْبَارِئُ",
+    "transliteration": "Al-Bari'",
+    "translation": "Le Producteur, l'Initiateur",
+    "meaning": "Celui qui crée sans modèle, qui donne l'existence selon Sa sagesse."
+  },
+  {
+    "number": 13,
+    "arabic": "الْمُصَوِّرُ",
+    "transliteration": "Al-Musawwir",
+    "translation": "Le Formateur",
+    "meaning": "Celui qui façonne Ses créatures et leur donne leur forme unique."
+  },
+  {
+    "number": 14,
+    "arabic": "الْغَفَّارُ",
+    "transliteration": "Al-Ghaffar",
+    "translation": "Le Grand Pardonneur",
+    "meaning": "Celui qui pardonne sans cesse, quel que soit le nombre des fautes."
+  },
+  {
+    "number": 15,
+    "arabic": "الْقَهَّارُ",
+    "transliteration": "Al-Qahhar",
+    "translation": "Le Dominateur",
+    "meaning": "Celui qui soumet toute chose par Sa puissance irrésistible."
+  },
+  {
+    "number": 16,
+    "arabic": "الْوَهَّابُ",
+    "transliteration": "Al-Wahhab",
+    "translation": "Le Donateur",
+    "meaning": "Celui qui donne abondamment sans attendre de retour ni de compensation."
+  },
+  {
+    "number": 17,
+    "arabic": "الرَّزَّاقُ",
+    "transliteration": "Ar-Razzaq",
+    "translation": "Le Pourvoyeur",
+    "meaning": "Celui qui pourvoit aux besoins de toute créature, visible et invisible."
+  },
+  {
+    "number": 18,
+    "arabic": "الْفَتَّاحُ",
+    "transliteration": "Al-Fattah",
+    "translation": "Celui qui ouvre, le Juge",
+    "meaning": "Celui qui ouvre les portes de la miséricorde, de la subsistance et de la victoire."
+  },
+  {
+    "number": 19,
+    "arabic": "الْعَلِيمُ",
+    "transliteration": "Al-'Alim",
+    "translation": "L'Omniscient",
+    "meaning": "Celui dont la science embrasse tout, le passé, le présent et le futur."
+  },
+  {
+    "number": 20,
+    "arabic": "الْقَابِضُ",
+    "transliteration": "Al-Qabid",
+    "translation": "Celui qui restreint",
+    "meaning": "Celui qui restreint la subsistance ou les âmes selon Sa sagesse."
+  },
+  {
+    "number": 21,
+    "arabic": "الْبَاسِطُ",
+    "transliteration": "Al-Basit",
+    "translation": "Celui qui étend",
+    "meaning": "Celui qui étend la subsistance, la miséricorde et la joie à qui Il veut."
+  },
+  {
+    "number": 22,
+    "arabic": "الْخَافِضُ",
+    "transliteration": "Al-Khafid",
+    "translation": "Celui qui abaisse",
+    "meaning": "Celui qui rabaisse les orgueilleux et les injustes."
+  },
+  {
+    "number": 23,
+    "arabic": "الرَّافِعُ",
+    "transliteration": "Ar-Rafi'",
+    "translation": "Celui qui élève",
+    "meaning": "Celui qui élève en degré ceux qui Le craignent et s'humilient."
+  },
+  {
+    "number": 24,
+    "arabic": "الْمُعِزُّ",
+    "transliteration": "Al-Mu'izz",
+    "translation": "Celui qui honore",
+    "meaning": "Celui qui accarde l'honneur et la puissance à qui Il veut."
+  },
+  {
+    "number": 25,
+    "arabic": "الْمُذِلُّ",
+    "transliteration": "Al-Mudhill",
+    "translation": "Celui qui humilie",
+    "meaning": "Celui qui humilie les orgueilleux et les rebelles."
+  },
+  {
+    "number": 26,
+    "arabic": "السَّمِيعُ",
+    "transliteration": "As-Sami'",
+    "translation": "L'Audient",
+    "meaning": "Celui qui entend toute chose, le secret comme le manifeste."
+  },
+  {
+    "number": 27,
+    "arabic": "الْبَصِيرُ",
+    "transliteration": "Al-Basir",
+    "translation": "Le Clairvoyant",
+    "meaning": "Celui qui voit toute chose, l'apparent comme le caché."
+  },
+  {
+    "number": 28,
+    "arabic": "الْحَكَمُ",
+    "transliteration": "Al-Hakam",
+    "translation": "Le Juge",
+    "meaning": "Celui qui juge en toute équité, dont le jugement est sans appel."
+  },
+  {
+    "number": 29,
+    "arabic": "الْعَدْلُ",
+    "transliteration": "Al-'Adl",
+    "translation": "Le Juste",
+    "meaning": "Celui qui est la justice absolue, sans aucune partialité."
+  },
+  {
+    "number": 30,
+    "arabic": "اللَّطِيفُ",
+    "transliteration": "Al-Latif",
+    "translation": "Le Subtil, le Bienveillant",
+    "meaning": "Celui qui est bienveillant envers Ses serviteurs par des voies subtiles."
+  },
+  {
+    "number": 31,
+    "arabic": "الْخَبِيرُ",
+    "transliteration": "Al-Khabir",
+    "translation": "Le Bien Informé",
+    "meaning": "Celui qui connaît la réalité intime et les mystères de toute chose."
+  },
+  {
+    "number": 32,
+    "arabic": "الْحَلِيمُ",
+    "transliteration": "Al-Halim",
+    "translation": "Le Longanime, le Doux",
+    "meaning": "Celui qui retient Son courroux et pardonne malgré le pouvoir de châtier."
+  },
+  {
+    "number": 33,
+    "arabic": "الْعَظِيمُ",
+    "transliteration": "Al-'Azim",
+    "translation": "L'Immense, le Grand",
+    "meaning": "Celui dont la grandeur dépasse toute perception et toute description."
+  },
+  {
+    "number": 34,
+    "arabic": "الْغَفُورُ",
+    "transliteration": "Al-Ghafur",
+    "translation": "Le Pardonneur",
+    "meaning": "Celui qui couvre les péchés et dissimule les fautes."
+  },
+  {
+    "number": 35,
+    "arabic": "الشَّكُورُ",
+    "transliteration": "Ash-Shakur",
+    "translation": "Le Reconnaissant",
+    "meaning": "Celui qui récompense abondamment le peu d'œuvres de Ses serviteurs."
+  },
+  {
+    "number": 36,
+    "arabic": "الْعَلِيُّ",
+    "transliteration": "Al-'Ali",
+    "translation": "Le Très-Haut",
+    "meaning": "Celui qui est au-dessus de toute chose par Son essence et Ses attributs."
+  },
+  {
+    "number": 37,
+    "arabic": "الْكَبِيرُ",
+    "transliteration": "Al-Kabir",
+    "translation": "Le Grand, l'Incommensurable",
+    "meaning": "Celui dont la grandeur n'a ni commencement ni fin."
+  },
+  {
+    "number": 38,
+    "arabic": "الْحَفِيظُ",
+    "transliteration": "Al-Hafiz",
+    "translation": "Le Gardien, le Préservateur",
+    "meaning": "Celui qui protège et préserve toute chose de la perte et de l'oubli."
+  },
+  {
+    "number": 39,
+    "arabic": "الْمُقِيتُ",
+    "transliteration": "Al-Muqit",
+    "translation": "Le Nourricier, le Soutien",
+    "meaning": "Celui qui maintient et nourrit toute créature selon ses besoins."
+  },
+  {
+    "number": 40,
+    "arabic": "الْحَسِيبُ",
+    "transliteration": "Al-Hasib",
+    "translation": "Celui qui compte, le Suffisant",
+    "meaning": "Celui qui suffit à Ses serviteurs et qui tient compte de toute chose."
+  },
+  {
+    "number": 41,
+    "arabic": "الْجَلِيلُ",
+    "transliteration": "Al-Jalil",
+    "translation": "Le Majestueux",
+    "meaning": "Celui qui est digne de majesté, de vénération et de glorification."
+  },
+  {
+    "number": 42,
+    "arabic": "الْكَرِيمُ",
+    "transliteration": "Al-Karim",
+    "translation": "Le Généreux",
+    "meaning": "Celui qui donne sans mesure et pardonne sans limite."
+  },
+  {
+    "number": 43,
+    "arabic": "الرَّقِيبُ",
+    "transliteration": "Ar-Raqib",
+    "translation": "Le Veilleur, l'Observateur",
+    "meaning": "Celui qui observe toute chose avec attention et vigilance."
+  },
+  {
+    "number": 44,
+    "arabic": "الْمُجِيبُ",
+    "transliteration": "Al-Mujib",
+    "translation": "L'Exauçant",
+    "meaning": "Celui qui répond aux invocations et aux appels de détresse."
+  },
+  {
+    "number": 45,
+    "arabic": "الْوَاسِعُ",
+    "transliteration": "Al-Wasi'",
+    "translation": "Le Vaste, l'Ample",
+    "meaning": "Celui dont la science, la miséricorde et la générosité embrassent tout."
+  },
+  {
+    "number": 46,
+    "arabic": "الْحَكِيمُ",
+    "transliteration": "Al-Hakim",
+    "translation": "Le Sage",
+    "meaning": "Celui dont les actes et les lois sont empreints de sagesse parfaite."
+  },
+  {
+    "number": 47,
+    "arabic": "الْوَدُودُ",
+    "transliteration": "Al-Wadud",
+    "translation": "Le Tout Aimant",
+    "meaning": "Celui qui aime Ses serviteurs pieux et se fait aimer d'eux."
+  },
+  {
+    "number": 48,
+    "arabic": "الْمَجِيدُ",
+    "transliteration": "Al-Majid",
+    "translation": "Le Glorieux",
+    "meaning": "Celui dont la gloire et la noblesse sont parfaites et immenses."
+  },
+  {
+    "number": 49,
+    "arabic": "الْبَاعِثُ",
+    "transliteration": "Al-Ba'ith",
+    "translation": "Celui qui ressuscite",
+    "meaning": "Celui qui ressuscite les morts et fait surgir les vivants des tombes."
+  },
+  {
+    "number": 50,
+    "arabic": "الشَّهِيدُ",
+    "transliteration": "Ash-Shahid",
+    "translation": "Le Témoin",
+    "meaning": "Celui qui est présent et témoin de toute chose, en tout lieu et temps."
+  },
+  {
+    "number": 51,
+    "arabic": "الْحَقُّ",
+    "transliteration": "Al-Haqq",
+    "translation": "La Vérité",
+    "meaning": "Celui dont l'existence est nécessaire, dont les paroles et les actes sont vérité."
+  },
+  {
+    "number": 52,
+    "arabic": "الْوَكِيلُ",
+    "transliteration": "Al-Wakil",
+    "translation": "Le Gérant, le Tuteur",
+    "meaning": "Celui à qui l'on confie ses affaires et qui gère toute chose avec perfection."
+  },
+  {
+    "number": 53,
+    "arabic": "الْقَوِيُّ",
+    "transliteration": "Al-Qawi",
+    "translation": "Le Fort",
+    "meaning": "Celui dont la force est absolue et qui n'est jamais affaibli."
+  },
+  {
+    "number": 54,
+    "arabic": "الْمَتِينُ",
+    "transliteration": "Al-Matin",
+    "translation": "L'Inébranlable",
+    "meaning": "Celui dont la solidité et la fermeté sont parfaites, sans faiblesse."
+  },
+  {
+    "number": 55,
+    "arabic": "الْوَلِيُّ",
+    "transliteration": "Al-Wali",
+    "translation": "Le Protecteur, l'Allié",
+    "meaning": "Celui qui protège, soutient et défend Ses serviteurs croyants."
+  },
+  {
+    "number": 56,
+    "arabic": "الْحَمِيدُ",
+    "transliteration": "Al-Hamid",
+    "translation": "Le Digne de Louanges",
+    "meaning": "Celui qui mérite toutes les louanges, qu'on Le loue ou non."
+  },
+  {
+    "number": 57,
+    "arabic": "الْمُحْصِي",
+    "transliteration": "Al-Muhsi",
+    "translation": "Le Comptable",
+    "meaning": "Celui qui dénombre toute chose avec une précision infinie."
+  },
+  {
+    "number": 58,
+    "arabic": "الْمُبْدِئُ",
+    "transliteration": "Al-Mubdi'",
+    "translation": "L'Initiateur de la création",
+    "meaning": "Celui qui crée les choses pour la première fois, sans modèle antérieur."
+  },
+  {
+    "number": 59,
+    "arabic": "الْمُعِيدُ",
+    "transliteration": "Al-Mu'id",
+    "translation": "Celui qui recommence",
+    "meaning": "Celui qui recrée et ramène les créatures après leur disparition."
+  },
+  {
+    "number": 60,
+    "arabic": "الْمُحْيِي",
+    "transliteration": "Al-Muhyi",
+    "translation": "Celui qui donne la vie",
+    "meaning": "Celui qui donne l'existence et la vie à qui Il veut."
+  },
+  {
+    "number": 61,
+    "arabic": "الْمُمِيتُ",
+    "transliteration": "Al-Mumit",
+    "translation": "Celui qui donne la mort",
+    "meaning": "Celui qui ôte la vie aux créatures au terme décrété."
+  },
+  {
+    "number": 62,
+    "arabic": "الْحَيُّ",
+    "transliteration": "Al-Hayy",
+    "translation": "Le Vivant",
+    "meaning": "Celui dont la vie est éternelle, sans commencement ni fin, parfaite et continue."
+  },
+  {
+    "number": 63,
+    "arabic": "الْقَيُّومُ",
+    "transliteration": "Al-Qayyum",
+    "translation": "Le Subsistant par Soi",
+    "meaning": "Celui qui se suffit à Lui-même et qui maintient l'existence de toute chose."
+  },
+  {
+    "number": 64,
+    "arabic": "الْوَاجِدُ",
+    "transliteration": "Al-Wajid",
+    "translation": "Celui qui trouve",
+    "meaning": "Celui qui ne manque de rien et qui trouve tout ce qu'Il cherche."
+  },
+  {
+    "number": 65,
+    "arabic": "الْمَاجِدُ",
+    "transliteration": "Al-Majid",
+    "translation": "Le Noble, le Généreux",
+    "meaning": "Celui dont la noblesse et la générosité sont sublimes et immenses."
+  },
+  {
+    "number": 66,
+    "arabic": "الْوَاحِدُ",
+    "transliteration": "Al-Wahid",
+    "translation": "L'Unique",
+    "meaning": "Celui qui est un, sans associé ni égal dans Son essence et Ses actes."
+  },
+  {
+    "number": 67,
+    "arabic": "الْأَحَدُ",
+    "transliteration": "Al-Ahad",
+    "translation": "L'Un",
+    "meaning": "Celui qui est unique en Son essence, indivisible et sans semblable."
+  },
+  {
+    "number": 68,
+    "arabic": "الصَّمَدُ",
+    "transliteration": "As-Samad",
+    "translation": "Le Soutien Universel",
+    "meaning": "Celui dont toute chose dépend, qui ne dépend de personne et n'a pas de besoin."
+  },
+  {
+    "number": 69,
+    "arabic": "الْقَادِرُ",
+    "transliteration": "Al-Qadir",
+    "translation": "Le Capable",
+    "meaning": "Celui qui a le pouvoir absolu de faire toute chose selon Sa volonté."
+  },
+  {
+    "number": 70,
+    "arabic": "الْمُقْتَدِرُ",
+    "transliteration": "Al-Muqtadir",
+    "translation": "Le Tout-Puissant",
+    "meaning": "Celui qui exerce Sa puissance avec une maîtrise et une sagesse parfaites."
+  },
+  {
+    "number": 71,
+    "arabic": "الْمُقَدِّمُ",
+    "transliteration": "Al-Muqaddim",
+    "translation": "Celui qui avance",
+    "meaning": "Celui qui avance qui Il veut et place en premier selon Sa sagesse."
+  },
+  {
+    "number": 72,
+    "arabic": "الْمُؤَخِّرُ",
+    "transliteration": "Al-Mu'akhkhir",
+    "translation": "Celui qui retarde",
+    "meaning": "Celui qui retarde ou repousse qui Il veut, sans injustice."
+  },
+  {
+    "number": 73,
+    "arabic": "الْأَوَّلُ",
+    "transliteration": "Al-Awwal",
+    "translation": "Le Premier",
+    "meaning": "Celui dont l'existence n'a pas de commencement, avant toute chose."
+  },
+  {
+    "number": 74,
+    "arabic": "الْآخِرُ",
+    "transliteration": "Al-Akhir",
+    "translation": "Le Dernier",
+    "meaning": "Celui dont l'existence n'a pas de fin, après toute chose."
+  },
+  {
+    "number": 75,
+    "arabic": "الظَّاهِرُ",
+    "transliteration": "Az-Zahir",
+    "translation": "L'Apparent",
+    "meaning": "Celui qui est manifeste par Ses signes et Ses créations, au-dessus de tout."
+  },
+  {
+    "number": 76,
+    "arabic": "الْبَاطِنُ",
+    "transliteration": "Al-Batin",
+    "translation": "Le Caché, l'Intime",
+    "meaning": "Celui qui échappe à la perception des sens et de l'imagination, insaisissable."
+  },
+  {
+    "number": 77,
+    "arabic": "الْوَالِي",
+    "transliteration": "Al-Wali",
+    "translation": "Le Gouverneur",
+    "meaning": "Celui qui dirige et administre toute chose dans l'univers."
+  },
+  {
+    "number": 78,
+    "arabic": "الْمُتَعَالِي",
+    "transliteration": "Al-Muta'ali",
+    "translation": "Le Sublime, l'Exalté",
+    "meaning": "Celui qui s'élève au-dessus de toute imperfection et de toute description."
+  },
+  {
+    "number": 79,
+    "arabic": "الْبَرُّ",
+    "transliteration": "Al-Barr",
+    "translation": "Le Bienfaiteur",
+    "meaning": "Celui qui est bienveillant et accorde de multiples bienfaits à Ses serviteurs."
+  },
+  {
+    "number": 80,
+    "arabic": "التَّوَّابُ",
+    "transliteration": "At-Tawwab",
+    "translation": "Celui qui accepte le repentir",
+    "meaning": "Celui qui agrée le repentir de Ses serviteurs, aussi souvent qu'ils se repentent."
+  },
+  {
+    "number": 81,
+    "arabic": "الْمُنْتَقِمُ",
+    "transliteration": "Al-Muntaqim",
+    "translation": "Le Vengeur",
+    "meaning": "Celui qui châtie les coupables obstinés avec équité, après avoir patienté."
+  },
+  {
+    "number": 82,
+    "arabic": "الْعَفُوُّ",
+    "transliteration": "Al-'Afuww",
+    "translation": "L'Indulgent, le Pardonnant",
+    "meaning": "Celui qui efface les fautes et les pardonne, bien qu'Il ait le pouvoir de châtier."
+  },
+  {
+    "number": 83,
+    "arabic": "الرَّؤُوفُ",
+    "transliteration": "Ar-Ra'uf",
+    "translation": "Le Bienveillant, le Miséricordieux",
+    "meaning": "Celui qui fait preuve de tendresse et de compassion envers Ses serviteurs."
+  },
+  {
+    "number": 84,
+    "arabic": "مَالِكُ الْمُلْكِ",
+    "transliteration": "Malik-ul-Mulk",
+    "translation": "Le Maître de la Royauté",
+    "meaning": "Celui qui possède le royaume absolu et dispose de toute chose comme Il veut."
+  },
+  {
+    "number": 85,
+    "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+    "transliteration": "Dhul-Jalali wal-Ikram",
+    "translation": "Le Détenteur de la Majesté et de la Générosité",
+    "meaning": "Celui qui réunit la majesté absolue et la générosité parfaite."
+  },
+  {
+    "number": 86,
+    "arabic": "الْمُقْسِطُ",
+    "transliteration": "Al-Muqsit",
+    "translation": "L'Équitable",
+    "meaning": "Celui qui établit la justice entre Ses serviteurs avec une équité parfaite."
+  },
+  {
+    "number": 87,
+    "arabic": "الْجَامِعُ",
+    "transliteration": "Al-Jami'",
+    "translation": "Le Rassembleur",
+    "meaning": "Celui qui rassemble les créatures au Jour du Jugement et réunit ce qui est dispersé."
+  },
+  {
+    "number": 88,
+    "arabic": "الْغَنِيُّ",
+    "transliteration": "Al-Ghani",
+    "translation": "Le Suffisant à Soi",
+    "meaning": "Celui qui se suffit à Lui-même et n'a besoin de rien ni de personne."
+  },
+  {
+    "number": 89,
+    "arabic": "الْمُغْنِي",
+    "transliteration": "Al-Mughni",
+    "translation": "Celui qui enrichit",
+    "meaning": "Celui qui enrichit qui Il veut et comble les besoins de Ses serviteurs."
+  },
+  {
+    "number": 90,
+    "arabic": "الْمَانِعُ",
+    "transliteration": "Al-Mani'",
+    "translation": "Celui qui empêche, le Défenseur",
+    "meaning": "Celui qui protège et empêche le mal d'atteindre qui Il veut, par Sa sagesse."
+  },
+  {
+    "number": 91,
+    "arabic": "الضَّارُّ",
+    "transliteration": "Ad-Darr",
+    "translation": "Celui qui peut nuire",
+    "meaning": "Celui qui éprouve par des épreuves pour éprouver la patience, par sagesse."
+  },
+  {
+    "number": 92,
+    "arabic": "النَّافِعُ",
+    "transliteration": "An-Nafi'",
+    "translation": "Celui qui est utile",
+    "meaning": "Celui qui accarde le bien et le bénéfice à qui Il veut, par Sa générosité."
+  },
+  {
+    "number": 93,
+    "arabic": "النُّورُ",
+    "transliteration": "An-Nur",
+    "translation": "La Lumière",
+    "meaning": "Celui qui illumine les cieux et la terre, qui guide les cœurs vers la vérité."
+  },
+  {
+    "number": 94,
+    "arabic": "الْهَادِي",
+    "transliteration": "Al-Hadi",
+    "translation": "Le Guide",
+    "meaning": "Celui qui guide Ses serviteurs vers la foi, la vérité et le salut."
+  },
+  {
+    "number": 95,
+    "arabic": "الْبَدِيعُ",
+    "transliteration": "Al-Badi'",
+    "translation": "Le Novateur, le Créateur sans modèle",
+    "meaning": "Celui qui crée sans précédent, qui invente l'univers de manière unique."
+  },
+  {
+    "number": 96,
+    "arabic": "الْبَاقِي",
+    "transliteration": "Al-Baqi",
+    "translation": "L'Éternel, le Permanent",
+    "meaning": "Celui dont l'existence est permanente, sans fin ni disparition."
+  },
+  {
+    "number": 97,
+    "arabic": "الْوَارِثُ",
+    "transliteration": "Al-Warith",
+    "translation": "L'Héritier",
+    "meaning": "Celui qui reste après la disparition de toute chose, qui hérite de la création."
+  },
+  {
+    "number": 98,
+    "arabic": "الرَّشِيدُ",
+    "transliteration": "Ar-Rashid",
+    "translation": "Le Guide Sage",
+    "meaning": "Celui qui guide avec sagesse vers le chemin droit et le bien."
+  },
+  {
+    "number": 99,
+    "arabic": "الصَّبُورُ",
+    "transliteration": "As-Sabur",
+    "translation": "Le Patient",
+    "meaning": "Celui qui ne se hâte pas de châtier, qui patiente face à la désobéissance des serviteurs."
+  }
+]

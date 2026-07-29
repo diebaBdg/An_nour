@@ -1,0 +1,211 @@
+[
+  {
+    "id": "seerah-1",
+    "year": 570,
+    "era": "pre-prophethood",
+    "title": "Naissance du Prophète ﷺ",
+    "arabic": "مولد النبي ﷺ",
+    "summary": "Muhammad ﷺ naît à La Mecque en l'An de l'Éléphant, de la tribu de Quraysh. Son père Abdullah meurt avant sa naissance.",
+    "description": "Muhammad ﷺ naquit à La Mecque le lundi 12 Rabi' al-Awwal en l'An de l'Éléphant (vers 570). Son père Abdullah ibn Abd al-Muttalib mourut avant sa naissance. Sa mère Aminah bint Wahb l'allaita puis le confia à Halimah as-Sa'diyah, sa nourrice bédouine, conformément à la coutume des nobles Quraysh. Il grandit sain et fort parmi les Bani Sa'd, bénéficiant de l'air pur du désert.",
+    "location": "La Mecque",
+    "icon": "child_care"
+  },
+  {
+    "id": "seerah-2",
+    "year": 576,
+    "era": "pre-prophethood",
+    "title": "Perte de sa mère",
+    "arabic": "وفاة أمه",
+    "summary": "À 6 ans, Muhammad ﷺ perd sa mère Aminah à Abwa. Son grand-père Abd al-Muttalib le prend en charge.",
+    "description": "À l'âge de six ans, sa mère Aminah l'emmena à Médine rendre visite à ses oncles maternels. Sur le chemin du retour, à Abwa, elle tomba malade et mourut. Le jeune Muhammad ﷺ fut alors confié à son grand-père Abd al-Muttalib, qui l'aimait profondément et le plaçait à côté de lui, honneur réservé aux chefs de Quraysh.",
+    "location": "Abwa",
+    "icon": "family_restroom"
+  },
+  {
+    "id": "seerah-3",
+    "year": 578,
+    "era": "pre-prophethood",
+    "title": "Sous la tutelle de son oncle Abu Talib",
+    "arabic": "كفالة عمه أبي طالب",
+    "summary": "À 8 ans, son grand-père décède. Son oncle Abu Talib le recueille et le protège avec tendresse.",
+    "description": "Deux ans après Aminah, Abd al-Muttalib mourut. Muhammad ﷺ avait alors huit ans. Son oncle Abu Talib, frère de son père, le prit en charge. Abu Talib, bien que modeste, l'aima comme son propre fils et le protégea toute sa vie, même après le début de la prophétie, au péril de sa propre position au sein de Quraysh.",
+    "location": "La Mecque",
+    "icon": "shield"
+  },
+  {
+    "id": "seerah-4",
+    "year": 595,
+    "era": "pre-prophethood",
+    "title": "Mariage avec Khadijah",
+    "arabic": "زواجه بخديجة",
+    "summary": "À 25 ans, il épouse Khadijah bint Khuwaylid, noble femme de Quraysh, de 15 ans son aînée.",
+    "description": "Muhammad ﷺ se distingua par son honnêteté et fut surnommé 'Al-Amin' (le digne de confiance). Khadijah bint Khuwaylid, riche veuve noble de Quraysh, l'employa pour son commerce en Syrie. Impressionnée par sa probité, elle lui proposa le mariage. Il épousa Khadijah à 25 ans ; elle avait 40 ans. De cette union naquirent Al-Qasim, Abdullah, Zaynab, Ruqayyah, Umm Kulthum et Fatimah. Khadijah fut la première à croire en sa prophétie.",
+    "location": "La Mecque",
+    "icon": "favorite"
+  },
+  {
+    "id": "seerah-5",
+    "year": 610,
+    "era": "meccan",
+    "title": "Révélation dans la grotte Hira",
+    "arabic": "نزول الوحي",
+    "summary": "À 40 ans, l'ange Jibril apparaît à Muhammad ﷺ dans la grotte Hira. Première révélation : Sourate Al-Alaq.",
+    "description": "Muhammad ﷺ avait l'habitude de se retirer dans la grotte Hira pour méditer. À 40 ans, l'ange Jibril (Gabriel) lui apparut et lui dit : 'Iqra' (Lis !). Il reçut les premiers versets de la Sourate Al-Alaq : 'Lis au nom de ton Seigneur qui a créé...'. Tremblant, il rentra chez Khadijah en disant 'Couvrez-moi !'. Khadijah le réconforta et l'emmena chez son cousin Waraqah ibn Nawfal, chrétien lettré, qui confirma qu'il s'agissait du même ange qui était venu à Musa (Moïse).",
+    "location": "Grotte Hira, La Mecque",
+    "icon": "auto_awesome"
+  },
+  {
+    "id": "seerah-6",
+    "year": 613,
+    "era": "meccan",
+    "title": "Prédication publique",
+    "arabic": "الدعوة العلنية",
+    "summary": "Après trois ans de prédication secrète, le Prophète ﷺ appelle ouvertement à l'islam. Quraysh s'y oppose violemment.",
+    "description": "Pendant trois ans, le Prophète ﷺ prêcha discrètement. Les premiers musulmans furent Khadijah, Ali, Zayd et Abu Bakr. Puis Allah ordonna la prédication publique. Quraysh réagit par des moqueries, un boycott économique et des tortures. Bilal, Ammar et sa famille, ainsi que bien d'autres, endurèrent des persécutions atroces. Le Prophète ﷺ lui-même fut insulté et menacé.",
+    "location": "La Mecque",
+    "icon": "campaign"
+  },
+  {
+    "id": "seerah-7",
+    "year": 615,
+    "era": "meccan",
+    "title": "Migration en Abyssinie",
+    "arabic": "الهجرة إلى الحبشة",
+    "summary": "Devant les persécutions, un groupe de musulmans migre en Abyssinie, terre de justice sous le roi chrétien Najashi.",
+    "description": "Face à l'intensification des persécutions, le Prophète ﷺ autorisa certains compagnons à migrer vers l'Abyssinie (Éthiopie), où le roi chrétien Najashi (le Négus) régnait avec justice. Ja'far ibn Abi Talib y récita la Sourate Maryam, émouvant le roi jusqu'aux larmes, qui offrit sa protection aux musulmans et refusa de les livrer à Quraysh.",
+    "location": "Abyssinie",
+    "icon": "flight_takeoff"
+  },
+  {
+    "id": "seerah-8",
+    "year": 619,
+    "era": "meccan",
+    "title": "L'Année de la Tristesse",
+    "arabic": "عام الحزن",
+    "summary": "Le Prophète ﷺ perd son oncle Abu Talib puis son épouse Khadijah la même année.",
+    "description": "L'an 619 fut appelé 'Année de la Tristesse'. Abu Talib, protecteur du Prophète ﷺ, mourut, laissant Quraysh libre de maltraiter le Messager. Peu après, Khadijah, son épouse aimée et premier soutien, décéda à son tour. Le Prophète ﷺ perdit ses deux plus grands soutiens en quelques semaines, éprouvant un chagrin immense.",
+    "location": "La Mecque",
+    "icon": "sentiment_very_dissatisfied"
+  },
+  {
+    "id": "seerah-9",
+    "year": 620,
+    "era": "meccan",
+    "title": "Voyage nocturne et Ascension (Al-Isra wal-Mi'raj)",
+    "arabic": "الإسراء والمعراج",
+    "summary": "Le Prophète ﷺ voyage nocturnement de La Mecque à Jérusalem, puis ascension aux sept cieux. Les prières sont prescrites.",
+    "description": "Une nuit, Allah fit voyager Son Prophète ﷺ de la Mosquée sacrée (La Mecque) à la Mosquée lointaine (Jérusalem) sur une monture appelée Al-Buraq. De là, il ascensionna à travers les sept cieux, rencontra les prophètes précédents (Adam, Musa, Ibrahim, etc.) et reçut le don des cinq prières quotidiennes, réduites de cinquante à cinq par l'intercession de Musa. Cet événement consolait le Prophète ﷺ après l'Année de la Tristesse.",
+    "location": "La Mecque - Jérusalem - Cieux",
+    "icon": "nightlight_round"
+  },
+  {
+    "id": "seerah-10",
+    "year": 622,
+    "era": "meccan",
+    "title": "Pactes d'Aqabah et préparation de la migration",
+    "arabic": "بيعتا العقبة",
+    "summary": "Des habitants de Yathrib (Médine) embrassent l'islam et prêtent allégeance au Prophète ﷺ, préparant l'Hégire.",
+    "description": "Lors des pèlerinages, le Prophète ﷺ rencontra des habitants de Yathrib (futur Médine) des tribus Aws et Khazraj. Ils embrassèrent l'islam et, lors du pacte d'Aqabah, prêtèrent allégeance. L'année suivante, 73 personnes prêtèrent un second serment, invitant les musulmans à s'installer chez eux et promettant protection. Le Prophète ﷺ autorisa alors ses compagnons à migrer vers Médine.",
+    "location": "Aqabah, près de La Mecque",
+    "icon": "handshake"
+  },
+  {
+    "id": "seerah-11",
+    "year": 622,
+    "era": "medinan",
+    "title": "L'Hégire (Al-Hijrah)",
+    "arabic": "الهجرة",
+    "summary": "Le Prophète ﷺ et Abu Bakr migrent de La Mecque à Médine. Début du calendrier islamique.",
+    "description": "Après un complot de Quraysh pour l'assassiner, le Prophète ﷺ quitta La Mecque avec Abu Bakr. Ils se cachèrent dans la grotte Thawr trois jours, où une araignée tissa sa toile et un pigeon niche pour tromper les poursuivants, par la volonté d'Allah. Ils arrivèrent à Médine (Yathrib) où ils furent accueillis avec joie. Cette migration (Hégire) marque le début du calendrier islamique (An 1 de l'Hégire).",
+    "location": "La Mecque - Médine",
+    "icon": "directions_walk"
+  },
+  {
+    "id": "seerah-12",
+    "year": 622,
+    "era": "medinan",
+    "title": "Construction de la Mosquée et fraternité",
+    "arabic": "بناء المسجد والمؤاخاة",
+    "summary": "Le Prophète ﷺ construit la Mosquée de Médine et instaure la fraternité entre les Muhajirines et les Ansars.",
+    "description": "À son arrivée à Médine, le Prophète ﷺ fit construire la Mosquée (Masjid Nabawi), qui servait aussi de lieu de réunion et de tribunal. Il établit un pacte de fraternité (Mu'akhah) entre les émigrants mecquois (Muhajirines) et les habitants médinois (Ansars), qui partagèrent leurs biens et leurs foyers. Il rédigea aussi la Constitution de Médine régissant la coexistence des tribus.",
+    "location": "Médine",
+    "icon": "mosque"
+  },
+  {
+    "id": "seerah-13",
+    "year": 624,
+    "era": "medinan",
+    "title": "Bataille de Badr",
+    "arabic": "غزوة بدر",
+    "summary": "Première grande bataille : 313 musulmans vainquent 1000 Qurayshites. Victoire décisive par la grâce d'Allah.",
+    "description": "En l'an 2 de l'Hégire, 313 musulmans mal armés affrontèrent à Badr une armée de Quraysh forte de près de 1000 hommes bien équipés. Malgré l'infériorité numérique, les musulmans remportèrent une victoire éclatante grâce au secours d'Allah et aux anges. Beaucoup de chefs de Quraysh furent tués, dont Abu Jahl. Cette bataille marqua un tournant : l'islam devenait une force reconnue.",
+    "location": "Badr",
+    "icon": "military_tech"
+  },
+  {
+    "id": "seerah-14",
+    "year": 625,
+    "era": "medinan",
+    "title": "Bataille d'Uhud",
+    "arabic": "غزوة أحد",
+    "summary": "Les musulmans subissent une défaite à Uhud à cause du non-respect des ordres du Prophète ﷺ. Martyre de Hamzah.",
+    "description": "L'an 3 de l'Hégire, Quraysh vint venger Badr. À Uhud, les musulmans furent d'abord victorieux, mais des archers quittèrent leur poste contre l'ordre du Prophète ﷺ pour collecter le butin. Khalid ibn al-Walid (pas encore musulman) profita de la brèche et retourna la situation. Le Prophète ﷺ fut blessé, et son oncle Hamzah, 'le lion d'Allah', fut martyrisé. Cette défaite fut une dure leçon d'obéissance et de patience.",
+    "location": "Mont Uhud, Médine",
+    "icon": "terrain"
+  },
+  {
+    "id": "seerah-15",
+    "year": 627,
+    "era": "medinan",
+    "title": "Bataille des Coalisés (Al-Khandaq)",
+    "arabic": "غزوة الخندق",
+    "summary": "Médine est assiégée par une coalition. Sur conseil de Salman, un fossé est creusé. Le siège échoue.",
+    "description": "En l'an 5, une coalition de tribus, menée par Quraysh et des juifs, assiégea Médine avec 10000 hommes. Sur le conseil du compagnon perse Salman al-Farisi, les musulmans creusèrent un fossé (Khandaq) autour de la ville, tactique inconnue des Arabes. Le siège dura plusieurs semaines sous le froid et la faim. Finalement, un vent violent envoyé par Allah dispersa les coalisés, qui levèrent le siège. Médine fut sauvée.",
+    "location": "Médine",
+    "icon": "engineering"
+  },
+  {
+    "id": "seerah-16",
+    "year": 628,
+    "era": "medinan",
+    "title": "Traité de Hudaybiyah",
+    "arabic": "صلح الحديبية",
+    "summary": "Le Prophète ﷺ conclut un traité de paix de 10 ans avec Quraysh. Victoire diplomatique qualifiée de 'victoire manifeste'.",
+    "description": "En l'an 6, le Prophète ﷺ partit avec 1400 compagnons pour accomplir l'Umrah. Quraysh les bloqua à Hudaybiyah. Un traité fut conclu apparemment défavorable, reportant le pèlerinage d'un an et comportant des clauses vexatoires. Mais le Coran le qualifia de 'victoire manifeste' (Fath Mubin). En effet, la paix permit à l'islam de se propager librement ; en deux ans, plus de gens embrassèrent l'islam que depuis le début de la prédication.",
+    "location": "Hudaybiyah",
+    "icon": "history_edu"
+  },
+  {
+    "id": "seerah-17",
+    "year": 630,
+    "era": "medinan",
+    "title": "Conquête de La Mecque (Fath Makkah)",
+    "arabic": "فتح مكة",
+    "summary": "Quraysh rompt le traité. Le Prophète ﷺ entre à La Mecque avec 10000 hommes, sans effusion de sang, et pardonne à ses ennemis.",
+    "description": "Quraysh rompit le traité de Hudaybiyah en attaquant une tribu alliée. Le Prophète ﷺ marcha sur La Mecque avec 10000 hommes. Il y entra sans résistance majeure. Il purifia la Kaaba de ses 360 idoles en récitant 'La vérité est venue, le faux a disparu'. Il pardonna à ses pires ennemis, déclarant : 'Allez, vous êtes libres.' Cet acte de clémence entraîna la conversion massive de Quraysh.",
+    "location": "La Mecque",
+    "icon": "location_city"
+  },
+  {
+    "id": "seerah-18",
+    "year": 632,
+    "era": "medinan",
+    "title": "Pèlerinage d'Adieu",
+    "arabic": "حجة الوداع",
+    "summary": "Le Prophète ﷺ accomplit son unique pèlerinage, accompagné de plus de 100000 fidèles. Sermon d'Adieu.",
+    "description": "En l'an 10, le Prophète ﷺ accomplit le Hajj avec plus de 100000 fidèles. Sur le mont Arafat, il prononça le Sermon d'Adieu, résumant les principes de l'islam : égalité, droits des femmes, interdiction de l'usure, fraternité universelle. Il demanda : 'Vous ai-je transmis ?' Les compagnons répondirent oui, et il leva les doigts vers le ciel déclarant : 'Ô Allah, sois témoin.'",
+    "location": "Arafat, La Mecque",
+    "icon": "groups"
+  },
+  {
+    "id": "seerah-19",
+    "year": 632,
+    "era": "medinan",
+    "title": "Décès du Prophète ﷺ",
+    "arabic": "وفاة النبي ﷺ",
+    "summary": "Le 12 Rabi' al-Awwal an 11, le Prophète ﷺ s'éteint à Médine à l'âge de 63 ans, chez Aïsha.",
+    "description": "Après son retour de La Mecque, le Prophète ﷺ tomba malade. Après quelques jours de fièvre, il s'éteignit le lundi 12 Rabi' al-Awwal an 11 de l'Hégire (632), à l'âge de 63 ans, dans la chambre de son épouse Aïsha, sa tête posée sur son bras. Ses derniers mots furent : 'La prière... la prière... et ceux que votre main droite possède (les serviteurs).' Sa mort plongea les compagnons dans la stupeur. Abu Bakr prononça : 'Quiconque adorait Muhammad, Muhammad est mort. Quiconque adore Allah, Allah est vivant et ne meurt jamais.'",
+    "location": "Médine",
+    "icon": "sentiment_dissatisfied"
+  }
+]

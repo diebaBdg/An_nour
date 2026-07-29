@@ -75,6 +75,18 @@ class ProfileScreen extends StatelessWidget {
                 onTap: () => context.push('/hadiths'),
               ),
               _ProfileTile(
+                icon: Icons.history_edu_rounded,
+                title: 'Biographie du Prophète ﷺ',
+                subtitle: 'Chronologie de la vie du Prophète',
+                onTap: () => context.push('/seerah'),
+              ),
+              _ProfileTile(
+                icon: Icons.fingerprint_rounded,
+                title: '99 Noms d\'Allah',
+                subtitle: 'Noms et attributs divins',
+                onTap: () => context.push('/divine-names'),
+              ),
+              _ProfileTile(
                 icon: Icons.calendar_month_rounded,
                 title: 'Calendrier islamique',
                 subtitle: 'Date hijri et événements',

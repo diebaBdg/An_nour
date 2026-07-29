@@ -223,6 +223,16 @@ class HomeScreen extends ConsumerWidget {
                         label: 'Hadiths',
                         onTap: () => context.push('/hadiths'),
                       ),
+                      QuickActionButton(
+                        icon: Icons.history_edu_rounded,
+                        label: 'Seerah',
+                        onTap: () => context.push('/seerah'),
+                      ),
+                      QuickActionButton(
+                        icon: Icons.fingerprint_rounded,
+                        label: '99 Noms',
+                        onTap: () => context.push('/divine-names'),
+                      ),
                     ],
                   ),
                 ],
