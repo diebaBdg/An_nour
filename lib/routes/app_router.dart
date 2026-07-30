@@ -8,6 +8,7 @@ import '../screens/prayer/prayer_screen.dart';
 import '../screens/quran/quran_screen.dart';
 import '../screens/duas/duas_screen.dart';
 import '../screens/profile/profile_screen.dart';
+import '../screens/prayer/location_settings_screen.dart';
 import '../screens/qibla/qibla_screen.dart';
 import '../screens/tasbih/tasbih_screen.dart';
 import '../screens/quran/surah_detail_screen.dart';
@@ -78,6 +79,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           final number = int.parse(state.pathParameters['number']!);
           return SurahDetailScreen(surahNumber: number);
         },
+      ),
+      GoRoute(
+        path: '/prayer/location',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, __) => const LocationSettingsScreen(),
       ),
       GoRoute(
         path: '/qibla',
