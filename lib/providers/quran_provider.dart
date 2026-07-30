@@ -1,17 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/quran_model.dart';
 import '../repositories/quran_repository.dart';
+import 'settings_provider.dart';
 
 final quranRepositoryProvider = Provider<QuranRepository>((ref) {
   return QuranRepository();
 });
 
 final surahsProvider = FutureProvider<List<Surah>>((ref) async {
-  return ref.watch(quranRepositoryProvider).getAllSurahs();
+  final language = ref.watch(settingsProvider).locale.languageCode;
+  return ref.watch(quranRepositoryProvider).getAllSurahs(language: language);
 });
 
 final surahDetailProvider = FutureProvider.family<SurahDetail, int>((ref, surahNumber) async {
-  return ref.watch(quranRepositoryProvider).getSurahDetail(surahNumber);
+  final language = ref.watch(settingsProvider).locale.languageCode;
+  return ref.watch(quranRepositoryProvider).getSurahDetail(surahNumber, language: language);
 });
 
 final quranSearchProvider = StateProvider<String>((ref) => '');
@@ -34,15 +37,11 @@ final filteredSurahsProvider = Provider<List<Surah>>((ref) {
 
   final q = query.toLowerCase().trim();
   return surahs.where((s) {
-    // Recherche par numéro
     if (int.tryParse(q) != null && s.number == int.parse(q)) {
       return true;
     }
-    // Recherche par nom arabe
     if (s.nameArabic.toLowerCase().contains(q)) return true;
-    // Recherche par nom anglais
     if (s.englishName.toLowerCase().contains(q)) return true;
-    // Recherche par traduction
     if (s.englishNameTranslation.toLowerCase().contains(q)) return true;
     return false;
   }).toList();

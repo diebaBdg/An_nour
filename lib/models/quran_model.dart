@@ -20,31 +20,26 @@ class Surah {
     required this.revelationOrder,
   });
 
-  // Getters pour la compatibilité avec l'ancien code
   int get number => id;
   int get numberOfAyahs => numberOfVerses;
 
-  /// Factory pour l'API Quran.com
   factory Surah.fromQuranApiJson(Map<String, dynamic> json) {
-    // Gérer le nom traduit
     String translatedName = '';
     if (json['translated_name'] != null) {
-      translatedName = json['translated_name']['name'] as String? ?? '';
+      translatedName =
+          (json['translated_name'] as Map<String, dynamic>)['name'] as String? ??
+              '';
     }
 
-    // Gérer le nom en anglais
-    String englishName = '';
-    if (json['translated_name'] != null) {
-      englishName = json['translated_name']['name'] as String? ?? '';
-    }
+    String englishName = translatedName;
     if (englishName.isEmpty) {
-      englishName = json['name'] as String? ?? '';
+      englishName = json['name_simple'] as String? ?? json['name'] as String? ?? '';
     }
 
     return Surah(
       id: json['id'] as int? ?? 0,
-      name: json['name'] as String? ?? '',
-      nameArabic: json['name_arabic'] as String? ?? json['name'] as String? ?? '',
+      name: json['name_simple'] as String? ?? json['name'] as String? ?? '',
+      nameArabic: json['name_arabic'] as String? ?? '',
       englishName: englishName,
       englishNameTranslation: translatedName,
       numberOfVerses: json['verses_count'] as int? ?? 0,
@@ -53,14 +48,13 @@ class Surah {
     );
   }
 
-  /// Factory générique qui détecte automatiquement le format
   factory Surah.fromJson(Map<String, dynamic> json) {
-    // Si le JSON contient les clés de l'API Quran.com
-    if (json.containsKey('translated_name') || json.containsKey('name_arabic')) {
+    if (json.containsKey('translated_name') ||
+        json.containsKey('name_arabic') ||
+        json.containsKey('name_simple')) {
       return Surah.fromQuranApiJson(json);
     }
 
-    // Sinon, on essaie le format de l'ancienne API Al-Quran Cloud
     return Surah(
       id: json['number'] as int? ?? 0,
       name: json['name'] as String? ?? '',
@@ -93,16 +87,26 @@ class Ayah {
   });
 
   factory Ayah.fromJson(Map<String, dynamic> json, {String? translation}) {
-    // Récupérer le numéro du verset
-    final int verseNumber = json['verse_number'] as int? ??
-        json['numberInSurah'] as int? ??
-        json['number'] as int? ?? 0;
+    final verseKey = json['verse_key'] as String?;
+    int verseNumber = 0;
+    if (verseKey != null && verseKey.contains(':')) {
+      verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
+    } else {
+      verseNumber = json['verse_number'] as int? ??
+          json['numberInSurah'] as int? ??
+          json['number'] as int? ??
+          0;
+    }
+
+    final text = json['text_uthmani'] as String? ??
+        json['text'] as String? ??
+        '';
 
     return Ayah(
       id: json['id'] as int? ?? 0,
       number: verseNumber,
       numberInSurah: verseNumber,
-      text: json['text'] as String? ?? '',
+      text: text,
       translation: translation,
       audioUrl: json['audio']?['url'] as String? ?? json['audio'] as String?,
     );

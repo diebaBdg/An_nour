@@ -15,8 +15,6 @@ class QuranScreen extends ConsumerWidget {
     final filteredSurahs = ref.watch(filteredSurahsProvider);
     final lastReadAsync = ref.watch(lastReadProvider);
 
-    print('📱 QuranScreen build - surahsAsync: ${surahsAsync.runtimeType}');
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Le Saint Coran'),
@@ -106,9 +104,6 @@ class QuranScreen extends ConsumerWidget {
                   ),
                 ),
                 data: (surahs) {
-                  print('📱 Données reçues: ${surahs.length} sourates');
-                  print('📱 Filtrées: ${filteredSurahs.length} sourates');
-
                   if (filteredSurahs.isEmpty) {
                     return const Center(
                       child: Text(
@@ -123,7 +118,6 @@ class QuranScreen extends ConsumerWidget {
                     itemCount: filteredSurahs.length,
                     itemBuilder: (context, index) {
                       final surah = filteredSurahs[index];
-                      print('📱 Affichage: ${surah.id} - ${surah.englishName}');
 
                       return Card(
                         margin: const EdgeInsets.symmetric(
