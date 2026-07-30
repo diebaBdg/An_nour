@@ -3,64 +3,127 @@ import '../services/api_service.dart';
 import '../services/storage_service.dart';
 import '../core/constants/app_constants.dart';
 
-/// Repository pour le Coran (API + cache local).
 class QuranRepository {
   QuranRepository({ApiService? apiService}) : _api = apiService ?? ApiService();
 
   final ApiService _api;
 
   Future<List<Surah>> getAllSurahs() async {
-    final data = await _api.getQuran('/surah');
-    final surahs = (data['surahs'] as List<dynamic>)
-        .map((e) => Surah.fromJson(e as Map<String, dynamic>))
-        .toList();
-    return surahs;
-  }
+    try {
+      print('📱 Récupération des sourates...');
+      final response = await _api.get('/chapters');
+      print('📱 Réponse reçue: ${response.keys}');
 
-  Future<SurahDetail> getSurahDetail(int number, {String edition = 'fr.hamidullah'}) async {
-    final arabicData = await _api.getQuran('/surah/$number');
-    final translationData = await _api.getQuran('/surah/$number/$edition');
+      if (response.containsKey('chapters')) {
+        final chapters = response['chapters'] as List<dynamic>;
+        print('📱 Nombre de chapitres: ${chapters.length}');
 
-    final surah = Surah.fromJson(arabicData);
-    final arabicAyahs = arabicData['ayahs'] as List<dynamic>;
+        final surahs = chapters
+            .map((e) {
+          final json = e as Map<String, dynamic>;
+          print('📱 Parsing: ${json['id']} - ${json['name']}');
+          return Surah.fromJson(json);
+        })
+            .toList();
 
-    final ayahs = <Ayah>[];
-    for (var i = 0; i < arabicAyahs.length; i++) {
-      final arabicJson = arabicAyahs[i] as Map<String, dynamic>;
-      final transJson = (translationData['ayahs'] as List<dynamic>)[i]
-          as Map<String, dynamic>;
-      ayahs.add(Ayah.fromJson(
-        arabicJson,
-        translation: transJson['text'] as String?,
-      ));
+        print('📱 ${surahs.length} sourates parsées avec succès');
+        return surahs;
+      }
+
+      throw Exception('Format de réponse inattendu');
+    } catch (e) {
+      print('❌ Erreur dans getAllSurahs: $e');
+      throw Exception('Erreur lors du chargement des sourates: $e');
     }
-
-    return SurahDetail(surah: surah, ayahs: ayahs);
   }
 
-  Future<List<Surah>> searchSurahs(String query, List<Surah> allSurahs) {
-    final q = query.toLowerCase().trim();
-    if (q.isEmpty) return Future.value(allSurahs);
+  Future<SurahDetail> getSurahDetail(int number, {String language = 'fr'}) async {
+    try {
+      print('📱 Récupération de la sourate $number...');
 
-    final results = allSurahs.where((s) {
-      return s.number.toString() == q ||
-          s.name.contains(q) ||
-          s.englishName.toLowerCase().contains(q) ||
-          s.englishNameTranslation.toLowerCase().contains(q);
-    }).toList();
+      // Récupérer les versets en arabe (Uthmani)
+      final arabicResponse = await _api.get('/quran/verses/uthmani?chapter_number=$number');
 
-    return Future.value(results);
+      // Récupérer la traduction
+      final translationResponse = await _api.get('/quran/verses/indopak?chapter_number=$number&language=$language');
+
+      // Extraire les versets
+      final arabicVerses = arabicResponse['verses'] as List<dynamic>? ?? [];
+      final translationVerses = translationResponse['verses'] as List<dynamic>? ?? [];
+
+      print('📱 Versets arabes: ${arabicVerses.length}, Traductions: ${translationVerses.length}');
+
+      // Récupérer les informations de la sourate
+      final surahInfo = arabicResponse['meta']?['chapter'] as Map<String, dynamic>? ?? {};
+      final surah = Surah.fromJson(surahInfo);
+      print('📱 Sourate: ${surah.id} - ${surah.englishName}');
+
+      // Créer une map des traductions par numéro de verset
+      final Map<int, String> translations = {};
+      for (var verse in translationVerses) {
+        final verseNumber = verse['verse_number'] as int? ?? 0;
+        final text = verse['text'] as String? ?? '';
+        if (verseNumber > 0) {
+          translations[verseNumber] = text;
+        }
+      }
+
+      // Construire la liste des versets
+      final ayahs = <Ayah>[];
+      for (var verse in arabicVerses) {
+        final verseNumber = verse['verse_number'] as int? ?? 0;
+        if (verseNumber > 0) {
+          ayahs.add(Ayah(
+            id: verse['id'] as int? ?? 0,
+            number: verseNumber,
+            numberInSurah: verseNumber,
+            text: verse['text'] as String? ?? '',
+            translation: translations[verseNumber],
+            audioUrl: verse['audio']?['url'] as String?,
+          ));
+        }
+      }
+
+      print('📱 ${ayahs.length} versets parsés');
+
+      // Gérer le Bismillah
+      String? bismillah;
+      if (number != 9 && ayahs.isNotEmpty) {
+        final firstAyah = ayahs.first.text;
+        if (firstAyah.startsWith('بِسْمِ')) {
+          bismillah = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        }
+      }
+
+      return SurahDetail(
+        surah: surah,
+        ayahs: ayahs,
+        bismillah: bismillah,
+      );
+    } catch (e) {
+      print('❌ Erreur dans getSurahDetail: $e');
+      throw Exception('Erreur lors du chargement de la sourate $number: $e');
+    }
   }
 
   Future<void> saveLastRead(int surahNumber, int ayahNumber) async {
-    await StorageService.setInt(AppConstants.keyLastSurah, surahNumber);
-    await StorageService.setInt(AppConstants.keyLastAyah, ayahNumber);
+    try {
+      await StorageService.setInt(AppConstants.keyLastSurah, surahNumber);
+      await StorageService.setInt(AppConstants.keyLastAyah, ayahNumber);
+      print('📱 Dernière lecture sauvegardée: Sourate $surahNumber, Verset $ayahNumber');
+    } catch (e) {
+      print('❌ Erreur lors de la sauvegarde: $e');
+    }
   }
 
   ({int surah, int ayah}) getLastRead() {
-    return (
-      surah: StorageService.getInt(AppConstants.keyLastSurah) ?? 1,
-      ayah: StorageService.getInt(AppConstants.keyLastAyah) ?? 1,
-    );
+    try {
+      final surah = StorageService.getInt(AppConstants.keyLastSurah) ?? 0;
+      final ayah = StorageService.getInt(AppConstants.keyLastAyah) ?? 0;
+      return (surah: surah, ayah: ayah);
+    } catch (e) {
+      print('❌ Erreur lors de la récupération de la dernière lecture: $e');
+      return (surah: 0, ayah: 0);
+    }
   }
 }

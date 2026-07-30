@@ -29,31 +29,33 @@ final prayerCountdownTimerProvider = StreamProvider<Duration>((ref) {
 
   Timer? timer;
 
-  void updateCountdown() async {
-    try {
-      final times = await ref.watch(prayerTimesProvider.future);
+  void updateCountdown() {
+    ref.read(prayerTimesProvider.future).then((times) {
       final duration = times.timeUntilNextPrayer ?? Duration.zero;
       if (!controller.isClosed) {
         controller.add(duration);
       }
-    } catch (e) {
+    }).catchError((error) {
       if (!controller.isClosed) {
-        controller.addError(e);
+        controller.add(Duration.zero);
       }
-    }
+    });
   }
 
-  // Premiere mise a jour
+  // Mise à jour initiale
   updateCountdown();
 
-  // Mise a jour toutes les secondes
+  // Mise à jour toutes les secondes
   timer = Timer.periodic(const Duration(seconds: 1), (_) {
     updateCountdown();
   });
 
-  controller.onCancel = () {
+  ref.onDispose(() {
     timer?.cancel();
-  };
+    controller.close();
+  });
+
+
 
   return controller.stream;
 });

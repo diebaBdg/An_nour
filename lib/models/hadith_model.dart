@@ -1,4 +1,3 @@
-/// Modèle d'un hadith authentique.
 class Hadith {
   const Hadith({
     required this.id,
@@ -36,7 +35,6 @@ class Hadith {
   String get reference => '$collection $bookNumber:$hadithNumber';
 }
 
-/// Citation quotidienne (Coran ou Hadith).
 class DailyQuote {
   const DailyQuote({
     required this.text,

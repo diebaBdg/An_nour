@@ -9,7 +9,6 @@ import '../../core/widgets/arabic_text.dart';
 import '../../models/tasbih_model.dart';
 import '../../providers/favorites_provider.dart';
 
-/// Compteur de tasbih numérique avec vibrations et historique.
 class TasbihScreen extends ConsumerWidget {
   const TasbihScreen({super.key});
 
@@ -35,7 +34,6 @@ class TasbihScreen extends ConsumerWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // Sélecteur de dhikr
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -106,9 +104,9 @@ class TasbihScreen extends ConsumerWidget {
                               ),
                             ).animate(key: ValueKey(state.count))
                                 .scale(
-                                  begin: const Offset(1.2, 1.2),
-                                  duration: 150.ms,
-                                ),
+                              begin: const Offset(1.2, 1.2),
+                              duration: 150.ms,
+                            ),
                           ],
                         ),
                       ),
@@ -129,49 +127,7 @@ class TasbihScreen extends ConsumerWidget {
               ),
             ),
 
-            // Historique
-            if (state.history.isNotEmpty)
-              Container(
-                height: 100,
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Historique', style: context.textTheme.titleSmall),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: state.history.take(10).length,
-                        itemBuilder: (_, i) {
-                          final session = state.history[i];
-                          return Container(
-                            margin: const EdgeInsets.only(right: 8),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.emerald.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  session.dhikr,
-                                  style: context.textTheme.labelLarge,
-                                ),
-                                Text('${session.count}/${session.target}'),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
           ],
         ),
       ),

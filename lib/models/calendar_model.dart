@@ -12,7 +12,6 @@ class IslamicEvent {
   final String description;
 }
 
-/// Représentation d'une date hijri.
 class HijriDateInfo {
   const HijriDateInfo({
     required this.day,

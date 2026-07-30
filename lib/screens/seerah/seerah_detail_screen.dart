@@ -8,7 +8,6 @@ import '../../core/utils/extensions.dart';
 import '../../core/widgets/arabic_text.dart';
 import '../../models/seerah_model.dart';
 
-/// Détail d'un événement de la Seerah.
 class SeerahDetailScreen extends ConsumerWidget {
   const SeerahDetailScreen({super.key, required this.event});
 

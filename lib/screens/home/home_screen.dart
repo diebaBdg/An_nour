@@ -31,7 +31,7 @@ class HomeScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Assalamu Alaikum',
+                    'Assalamu Alaykum',
                     style: context.textTheme.headlineMedium,
                   ).animate().fadeIn(duration: 400.ms).slideX(begin: -0.1),
                   const SizedBox(height: 4),

@@ -41,7 +41,6 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const _SectionHeader(title: 'Langue'),
-          // ✅ Utiliser Radio avec un groupValue partagé
           ..._buildLanguageRadios(settings, notifier),
           const _SectionHeader(title: 'Prières'),
           ListTile(
@@ -62,7 +61,6 @@ class SettingsScreen extends ConsumerWidget {
             },
           ),
           const _SectionHeader(title: 'Audio'),
-          // ✅ Utiliser Radio avec un groupValue partagé
           ..._buildReciterRadios(settings, notifier),
         ],
       ),
@@ -142,7 +140,6 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  // ✅ Méthode pour construire les radios de langue sans dépréciation
   List<Widget> _buildLanguageRadios(AppSettings settings, SettingsNotifier notifier) {
     final languages = const [
       ('fr', 'Français'),
@@ -171,7 +168,6 @@ class SettingsScreen extends ConsumerWidget {
     }).toList();
   }
 
-  // ✅ Méthode pour construire les radios de récitateur sans dépréciation
   List<Widget> _buildReciterRadios(AppSettings settings, SettingsNotifier notifier) {
     return Reciter.values.map((reciter) {
       final isSelected = settings.reciter == reciter;

@@ -10,7 +10,6 @@ import '../../core/widgets/loading_widgets.dart';
 import '../../models/seerah_model.dart';
 import '../../providers/seerah_provider.dart';
 
-/// Chronologie de la vie du Prophète ﷺ inspirée des applications Al-Azkar et Muslim Pro.
 class SeerahScreen extends ConsumerWidget {
   const SeerahScreen({super.key});
 

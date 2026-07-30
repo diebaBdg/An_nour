@@ -1,4 +1,3 @@
-/// Modèle représentant une prière quotidienne.
 class PrayerTime {
   const PrayerTime({
     required this.name,
@@ -19,7 +18,6 @@ class PrayerTime {
   }
 }
 
-/// Ensemble des horaires de prière du jour.
 class DailyPrayerTimes {
   const DailyPrayerTimes({
     required this.fajr,
@@ -50,10 +48,8 @@ class DailyPrayerTimes {
         PrayerTime(name: 'Isha', time: isha, arabicName: 'العشاء'),
       ];
 
-  /// Prières obligatoires (sans le lever du soleil).
   List<PrayerTime> get obligatory => all.where((p) => p.name != 'Sunrise').toList();
 
-  /// Prochaine prière à venir.
   PrayerTime? get nextPrayer {
     final now = DateTime.now();
     for (final prayer in obligatory) {
@@ -69,7 +65,6 @@ class DailyPrayerTimes {
   }
 }
 
-/// Méthodes de calcul des horaires de prière.
 enum CalculationMethodType {
   muslimWorldLeague('Muslim World League'),
   egyptian('Egyptian General Authority'),

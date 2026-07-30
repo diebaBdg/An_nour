@@ -99,7 +99,6 @@ class ErrorStateWidget extends StatelessWidget {
   }
 }
 
-/// État vide pour les listes sans contenu.
 class EmptyStateWidget extends StatelessWidget {
   const EmptyStateWidget({
     super.key,

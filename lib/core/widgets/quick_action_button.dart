@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
 
-/// Bouton d'action rapide pour l'écran d'accueil.
 class QuickActionButton extends StatelessWidget {
   const QuickActionButton({
     super.key,

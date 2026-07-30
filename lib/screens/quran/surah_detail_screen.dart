@@ -7,7 +7,6 @@ import '../../core/widgets/arabic_text.dart';
 import '../../core/widgets/loading_widgets.dart';
 import '../../providers/quran_provider.dart';
 
-/// Lecture d'une sourate avec texte arabe et traduction française.
 class SurahDetailScreen extends ConsumerStatefulWidget {
   const SurahDetailScreen({super.key, required this.surahNumber});
 
@@ -18,11 +17,18 @@ class SurahDetailScreen extends ConsumerStatefulWidget {
 }
 
 class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
+  bool _isLastReadSaved = false;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(quranRepositoryProvider).saveLastRead(widget.surahNumber, 1);
+      if (!_isLastReadSaved) {
+        ref
+            .read(quranRepositoryProvider)
+            .saveLastRead(widget.surahNumber, 1);
+        _isLastReadSaved = true;
+      }
     });
   }
 
@@ -33,13 +39,16 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
     return Scaffold(
       body: detailAsync.when(
         loading: () =>
-            const LoadingIndicator(message: 'Chargement de la sourate...'),
+        const LoadingIndicator(message: 'Chargement de la sourate...'),
         error: (e, _) => ErrorStateWidget(
           message: e.toString(),
           onRetry: () =>
               ref.invalidate(surahDetailProvider(widget.surahNumber)),
         ),
         data: (detail) {
+          final hasBismillah = detail.surah.number != 9 && detail.bismillah != null;
+          final displayAyahs = detail.ayahs;
+
           return CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -73,21 +82,70 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
                   ),
                 ),
               ),
+              if (hasBismillah) ...[
+                SliverToBoxAdapter(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: AppColors.emerald.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: AppColors.emerald.withValues(alpha: 0.2),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        ArabicText(
+                          text: detail.bismillah!,
+                          fontSize: 28,
+                          color: AppColors.emerald,
+                        ),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Au nom d\'Allah, le Tout Miséricordieux, le Très Miséricordieux',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: 8),
+                ),
+              ],
               SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    final ayah = detail.ayahs[index];
+                      (context, index) {
+                    // Si on a un Bismillah, on saute le premier verset car il contient le Bismillah
+                    final ayahIndex = hasBismillah ? index + 1 : index;
+
+                    if (ayahIndex >= displayAyahs.length) {
+                      return const SizedBox.shrink();
+                    }
+
+                    final ayah = displayAyahs[ayahIndex];
+
+                    final bool isFirstAyahAfterBismillah = hasBismillah && index == 0;
+
                     return Padding(
                       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              // Indicateur de verset
                               CircleAvatar(
                                 radius: 14,
                                 backgroundColor:
-                                    AppColors.emerald.withValues(alpha: 0.12),
+                                AppColors.emerald.withValues(alpha: 0.12),
                                 child: Text(
                                   '${ayah.numberInSurah}',
                                   style: const TextStyle(
@@ -97,11 +155,34 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
                                   ),
                                 ),
                               ),
+                              // Indicateur "premier verset" si c'est le cas
+                              if (isFirstAyahAfterBismillah)
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.gold.withValues(alpha: 0.15),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: const Text(
+                                    'Premier verset',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppColors.gold,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
                           const SizedBox(height: 12),
-                          ArabicText(text: ayah.text, fontSize: 24),
-                          if (ayah.translation != null) ...[
+                          ArabicText(
+                            text: ayah.text,
+                            fontSize: 24,
+                          ),
+                          if (ayah.translation != null && ayah.translation!.isNotEmpty) ...[
                             const SizedBox(height: 12),
                             Text(
                               ayah.translation!,
@@ -113,7 +194,10 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
                       ),
                     );
                   },
-                  childCount: detail.ayahs.length,
+                  // Ajuster le nombre d'items
+                  childCount: hasBismillah
+                      ? displayAyahs.length - 1
+                      : displayAyahs.length,
                 ),
               ),
             ],
