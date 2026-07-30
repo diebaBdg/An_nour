@@ -1,4 +1,3 @@
-/// Modèle d'un événement de la biographie (Seerah) du Prophète ﷺ.
 class SeerahEvent {
   const SeerahEvent({
     required this.id,
@@ -37,7 +36,6 @@ class SeerahEvent {
   }
 }
 
-/// Périodes de la vie du Prophète ﷺ.
 enum SeerahEra {
   preProphethood('Avant la prophétie', 'pre-prophethood'),
   meccan('Période mecquoise', 'meccan'),

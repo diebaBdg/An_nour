@@ -2,7 +2,6 @@ import '../models/dua_model.dart';
 import '../models/hadith_model.dart';
 import '../services/local_data_service.dart';
 
-/// Repository pour les invocations (douas) locales.
 class DuaRepository {
   DuaRepository({LocalDataService? localDataService})
       : _local = localDataService ?? LocalDataService();
@@ -26,7 +25,6 @@ class DuaRepository {
   }
 }
 
-/// Repository pour les hadiths locaux.
 class HadithRepository {
   HadithRepository({LocalDataService? localDataService})
       : _local = localDataService ?? LocalDataService();
@@ -57,7 +55,6 @@ class HadithRepository {
   }
 }
 
-/// Repository pour les citations quotidiennes.
 class QuoteRepository {
   QuoteRepository({LocalDataService? localDataService})
       : _local = localDataService ?? LocalDataService();

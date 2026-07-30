@@ -1,4 +1,3 @@
-/// Modèle pour le compteur de tasbih.
 class TasbihSession {
   const TasbihSession({
     required this.dhikr,
@@ -28,7 +27,6 @@ class TasbihSession {
     );
   }
 
-  // ✅ AJOUTER CETTE MÉTHODE
   static TasbihSession fromJsonSafe(dynamic json) {
     if (json is Map<String, dynamic>) {
       return TasbihSession.fromJson(json);
@@ -42,7 +40,6 @@ class TasbihSession {
   }
 }
 
-/// Invocations prédéfinies pour le tasbih.
 enum DhikrType {
   subhanAllah('SubhanAllah', 'سُبْحَانَ اللَّهِ', 33),
   alhamdulillah('Alhamdulillah', 'الْحَمْدُ لِلَّهِ', 33),

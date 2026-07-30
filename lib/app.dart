@@ -6,7 +6,6 @@ import 'core/theme/app_theme.dart';
 import 'providers/settings_provider.dart';
 import 'routes/app_router.dart';
 
-/// Point d'entrée de l'application An-Nour.
 class AnNourApp extends ConsumerWidget {
   const AnNourApp({super.key});
 

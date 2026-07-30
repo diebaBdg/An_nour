@@ -6,7 +6,6 @@ import '../models/favorite_model.dart';
 import '../models/prayer_model.dart';
 import '../services/storage_service.dart';
 
-/// Modèle des paramètres utilisateur persistés.
 class AppSettings {
   const AppSettings({
     this.themeMode = ThemeMode.system,
@@ -43,7 +42,6 @@ class AppSettings {
   }
 }
 
-/// Notifier Riverpod pour les paramètres de l'application.
 class SettingsNotifier extends StateNotifier<AppSettings> {
   SettingsNotifier() : super(const AppSettings()) {
     _load();

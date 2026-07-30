@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/constants/app_constants.dart';
 
-/// Service centralisé pour le stockage local (Hive + SharedPreferences).
 class StorageService {
   StorageService._();
 
@@ -48,4 +47,5 @@ class StorageService {
       _prefs.setInt(key, value);
 
   static int? getInt(String key) => _prefs.getInt(key);
+
 }

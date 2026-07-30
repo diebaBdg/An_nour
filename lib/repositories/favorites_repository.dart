@@ -2,7 +2,6 @@ import '../models/favorite_model.dart';
 import '../models/tasbih_model.dart';
 import '../services/storage_service.dart';
 
-/// Repository pour la gestion des favoris.
 class FavoritesRepository {
   static const _key = 'favorite_items';
 
@@ -10,7 +9,6 @@ class FavoritesRepository {
     try {
       final raw = StorageService.favoritesBox.get(_key, defaultValue: <dynamic>[]) as List;
 
-      // ✅ Utiliser fromJsonSafe
       return raw
           .map((e) => FavoriteItem.fromJsonSafe(e))
           .toList();
@@ -49,7 +47,6 @@ class FavoritesRepository {
   }
 }
 
-/// Repository pour l'historique du tasbih.
 class TasbihRepository {
   static const _historyKey = 'tasbih_history';
   static const _countKey = 'tasbih_current_count';
@@ -72,7 +69,6 @@ class TasbihRepository {
   List<TasbihSession> getHistory() {
     try {
       final raw = StorageService.tasbihBox.get(_historyKey, defaultValue: <dynamic>[]) as List;
-      // ✅ Utiliser fromJsonSafe
       return raw
           .map((e) => TasbihSession.fromJsonSafe(e))
           .toList()

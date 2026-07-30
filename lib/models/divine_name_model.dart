@@ -1,4 +1,3 @@
-/// Modèle d'un des 99 Noms d'Allah.
 class DivineName {
   const DivineName({
     required this.number,

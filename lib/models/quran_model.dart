@@ -1,4 +1,3 @@
-/// Modèle d'une sourate du Coran.
 class Surah {
   final int id;
   final String name;
@@ -26,9 +25,7 @@ class Surah {
   factory Surah.fromQuranApiJson(Map<String, dynamic> json) {
     String translatedName = '';
     if (json['translated_name'] != null) {
-      translatedName =
-          (json['translated_name'] as Map<String, dynamic>)['name'] as String? ??
-              '';
+      translatedName = json['translated_name']['name'] as String? ?? '';
     }
 
     String englishName = translatedName;
@@ -68,7 +65,6 @@ class Surah {
   }
 }
 
-/// Modèle d'un verset (ayah).
 class Ayah {
   final int id;
   final int number;
@@ -113,7 +109,6 @@ class Ayah {
   }
 }
 
-/// Détail complet d'une sourate avec versets.
 class SurahDetail {
   final Surah surah;
   final List<Ayah> ayahs;

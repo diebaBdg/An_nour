@@ -8,7 +8,6 @@ class QuranRepository {
 
   final ApiService _api;
 
-  /// Map des langues vers les IDs de traduction disponibles.
   static const Map<String, int> _translationIds = {
     'fr': 31, // Muhammad Hamidullah
     'en': 20, // Saheeh International
@@ -20,59 +19,72 @@ class QuranRepository {
 
   Future<List<Surah>> getAllSurahs({String language = 'fr'}) async {
     try {
-      final response = await _api.get('/chapters?language=$language');
+      print('📱 Récupération des sourates...');
+      final response = await _api.get('/chapters');
+      print('📱 Réponse reçue avec clés: ${response.keys}');
+
       if (response.containsKey('chapters')) {
         final chapters = response['chapters'] as List<dynamic>;
-        return chapters
-            .map((e) => Surah.fromQuranApiJson(e as Map<String, dynamic>))
+        print('📱 Nombre de chapitres: ${chapters.length}');
+
+        final surahs = chapters
+            .map((e) {
+          final json = e as Map<String, dynamic>;
+          print('📱 Parsing: ${json['id']} - ${json['name_simple'] ?? json['name']}');
+          return Surah.fromQuranApiJson(json);
+        })
             .toList();
+
+        surahs.sort((a, b) => a.id.compareTo(b.id));
+        print('📱 ${surahs.length} sourates parsées avec succès');
+        return surahs;
       }
+
       throw Exception('Format de réponse inattendu');
     } catch (e) {
+      print('❌ Erreur dans getAllSurahs: $e');
       throw Exception('Erreur lors du chargement des sourates: $e');
     }
   }
 
   Future<SurahDetail> getSurahDetail(int number, {String language = 'fr'}) async {
     try {
-      // 1. Versets en arabe (texte uthmani)
-      final arabicResponse =
-          await _api.get('/quran/verses/uthmani?chapter_number=$number');
+      print('📱 Récupération de la sourate $number...');
 
-      // 2. Traduction dans la langue sélectionnée
-      final translationId = _translationIdFor(language);
-      final translationResponse =
-          await _api.get('/quran/translations/$translationId?chapter_number=$number');
+      final arabicResponse = await _api.get('/quran/verses/uthmani?chapter_number=$number');
+      print('📱 Versets arabes reçus');
 
-      // 3. Infos de la sourate (nom traduit selon la langue)
-      final chapterResponse = await _api.get('/chapters?language=$language');
-      final chapters = chapterResponse['chapters'] as List<dynamic>;
-      final surahJson = chapters.firstWhere(
-        (c) => (c as Map<String, dynamic>)['id'] as int? == number,
-        orElse: () => <String, dynamic>{'id': number},
-      ) as Map<String, dynamic>;
+      final chapterResponse = await _api.get('/chapters/$number');
+      final surahJson = chapterResponse['chapter'] as Map<String, dynamic>? ?? {};
       final surah = Surah.fromQuranApiJson(surahJson);
+      print('📱 Sourate: ${surah.id} - ${surah.englishName}');
 
-      // 4. Construire la map des traductions (indexées par numéro de verset)
-      final arabicVerses =
-          arabicResponse['verses'] as List<dynamic>? ?? [];
-      final translationVerses =
-          translationResponse['translations'] as List<dynamic>? ?? [];
+      final arabicVerses = arabicResponse['verses'] as List<dynamic>? ?? [];
+      print('📱 Versets arabes: ${arabicVerses.length}');
 
-      final Map<int, String> translations = {};
-      for (var i = 0; i < translationVerses.length && i < arabicVerses.length; i++) {
-        final verse = arabicVerses[i] as Map<String, dynamic>;
-        final verseKey = verse['verse_key'] as String?;
-        if (verseKey != null && verseKey.contains(':')) {
-          final verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
-          if (verseNumber > 0) {
-            final rawText = translationVerses[i]['text'] as String? ?? '';
-            translations[verseNumber] = _cleanTranslationText(rawText);
+      Map<int, String> translations = {};
+      try {
+        final translationId = _translationIdFor(language);
+        final translationResponse = await _api.get('/quran/translations/$translationId?chapter_number=$number');
+
+        final translationVerses = translationResponse['translations'] as List<dynamic>? ?? [];
+        print('📱 Traductions reçues: ${translationVerses.length}');
+
+        for (var i = 0; i < translationVerses.length && i < arabicVerses.length; i++) {
+          final verse = arabicVerses[i] as Map<String, dynamic>;
+          final verseKey = verse['verse_key'] as String?;
+          if (verseKey != null && verseKey.contains(':')) {
+            final verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
+            if (verseNumber > 0) {
+              final rawText = translationVerses[i]['text'] as String? ?? '';
+              translations[verseNumber] = _cleanTranslationText(rawText);
+            }
           }
         }
+      } catch (e) {
+        print('⚠️ Erreur lors de la récupération des traductions: $e');
       }
 
-      // 5. Construire la liste des versets
       final ayahs = <Ayah>[];
       for (var verse in arabicVerses) {
         final v = verse as Map<String, dynamic>;
@@ -80,17 +92,27 @@ class QuranRepository {
         if (verseKey == null || !verseKey.contains(':')) continue;
         final verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
         if (verseNumber > 0) {
+          String arabicText = v['text_uthmani'] as String? ?? '';
+          if (arabicText.isEmpty) {
+            arabicText = v['text'] as String? ?? '';
+          }
+          if (arabicText.isEmpty) {
+            arabicText = v['text_indopak'] as String? ?? '';
+          }
+
           ayahs.add(Ayah(
             id: v['id'] as int? ?? 0,
             number: verseNumber,
             numberInSurah: verseNumber,
-            text: v['text_uthmani'] as String? ?? '',
+            text: arabicText,
             translation: translations[verseNumber],
+            audioUrl: v['audio']?['url'] as String?,
           ));
         }
       }
 
-      // 6. Gérer le Bismillah
+      print('📱 ${ayahs.length} versets parsés');
+
       String? bismillah;
       if (number != 9 && ayahs.isNotEmpty) {
         final firstAyah = ayahs.first.text;
@@ -105,11 +127,11 @@ class QuranRepository {
         bismillah: bismillah,
       );
     } catch (e) {
+      print('❌ Erreur dans getSurahDetail: $e');
       throw Exception('Erreur lors du chargement de la sourate $number: $e');
     }
   }
 
-  /// Nettoie le texte de traduction (retire les balises <sup>...</sup>).
   String _cleanTranslationText(String text) {
     return text
         .replaceAll(RegExp(r'<sup[^>]*>.*?</sup>'), '')

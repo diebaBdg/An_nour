@@ -42,10 +42,7 @@ final prayerCountdownTimerProvider = StreamProvider<Duration>((ref) {
     });
   }
 
-  // Mise à jour initiale
   updateCountdown();
-
-  // Mise à jour toutes les secondes
   timer = Timer.periodic(const Duration(seconds: 1), (_) {
     updateCountdown();
   });
@@ -54,8 +51,6 @@ final prayerCountdownTimerProvider = StreamProvider<Duration>((ref) {
     timer?.cancel();
     controller.close();
   });
-
-
 
   return controller.stream;
 });
