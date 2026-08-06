@@ -22,6 +22,7 @@ import '../screens/seerah/seerah_screen.dart';
 import '../screens/seerah/seerah_detail_screen.dart';
 import '../screens/divine_names/divine_names_screen.dart';
 import '../screens/divine_names/divine_name_detail_screen.dart';
+import '../screens/ai_chat/ai_chat_screen.dart';
 import '../models/dua_model.dart';
 import '../models/hadith_model.dart';
 import '../models/seerah_model.dart';
@@ -156,6 +157,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           final extra = state.extra as DivineName;
           return DivineNameDetailScreen(name: extra);
         },
+      ),
+      GoRoute(
+        path: '/ai-chat',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, __) => const AiChatScreen(),
       ),
     ],
   );

@@ -233,6 +233,11 @@ class HomeScreen extends ConsumerWidget {
                         label: '99 Noms',
                         onTap: () => context.push('/divine-names'),
                       ),
+                      QuickActionButton(
+                        icon: Icons.auto_awesome_rounded,
+                        label: 'Assistant IA',
+                        onTap: () => context.push('/ai-chat'),
+                      ),
                     ],
                   ),
                 ],
