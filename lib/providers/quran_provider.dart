@@ -46,3 +46,14 @@ final filteredSurahsProvider = Provider<List<Surah>>((ref) {
     return false;
   }).toList();
 });
+
+/// Récupère la traduction d'un verset dans une langue donnée à la demande.
+final ayahTranslationProvider =
+    FutureProvider.family<String?, ({int surah, int ayah, String language})>(
+        (ref, params) async {
+  return ref.watch(quranRepositoryProvider).getAyahTranslation(
+        surahNumber: params.surah,
+        ayahNumber: params.ayah,
+        language: params.language,
+      );
+});

@@ -12,6 +12,11 @@ class QuranRepository {
     'fr': 31, // Muhammad Hamidullah
     'en': 20, // Saheeh International
     'ar': 136, // Montada Islamic Foundation
+    'es': 207, // Spanish (Montada)
+    'tr': 77,  // Turkish (Diyanet)
+    'ur': 234, // Urdu (Maududi)
+    'id': 134, // Indonesian (Indonesian Ministry)
+    'ru': 21,  // Russian (Kuliev)
   };
 
   int _translationIdFor(String language) =>
@@ -90,7 +95,9 @@ class QuranRepository {
         final v = verse as Map<String, dynamic>;
         final verseKey = v['verse_key'] as String?;
         if (verseKey == null || !verseKey.contains(':')) continue;
-        final verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
+        final parts = verseKey.split(':');
+        final surahNum = int.tryParse(parts.first) ?? number;
+        final verseNumber = int.tryParse(parts.last) ?? 0;
         if (verseNumber > 0) {
           String arabicText = v['text_uthmani'] as String? ?? '';
           if (arabicText.isEmpty) {
@@ -107,18 +114,17 @@ class QuranRepository {
             text: arabicText,
             translation: translations[verseNumber],
             audioUrl: v['audio']?['url'] as String?,
+            surahNumber: surahNum,
           ));
         }
       }
 
       print('📱 ${ayahs.length} versets parsés');
 
+      // Bismillah affiché pour toutes les sourates sauf At-Tawbah (9)
       String? bismillah;
-      if (number != 9 && ayahs.isNotEmpty) {
-        final firstAyah = ayahs.first.text;
-        if (firstAyah.startsWith('بِسْمِ')) {
-          bismillah = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-        }
+      if (number != 9) {
+        bismillah = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
       }
 
       return SurahDetail(
@@ -137,6 +143,30 @@ class QuranRepository {
         .replaceAll(RegExp(r'<sup[^>]*>.*?</sup>'), '')
         .replaceAll(RegExp(r'<[^>]*>'), '')
         .trim();
+  }
+
+  /// Récupère la traduction d'un verset dans une langue donnée à la demande.
+  Future<String?> getAyahTranslation({
+    required int surahNumber,
+    required int ayahNumber,
+    required String language,
+  }) async {
+    try {
+      final translationId = _translationIdFor(language);
+      final verseKey = '$surahNumber:$ayahNumber';
+      final response = await _api.get(
+        '/quran/translations/$translationId?verse_key=$verseKey',
+      );
+
+      final translations = response['translations'] as List<dynamic>?;
+      if (translations != null && translations.isNotEmpty) {
+        final rawText = translations[0]['text'] as String? ?? '';
+        return _cleanTranslationText(rawText);
+      }
+    } catch (e) {
+      print('⚠️ Erreur traduction à la demande: $e');
+    }
+    return null;
   }
 
   Future<void> saveLastRead(int surahNumber, int ayahNumber) async {

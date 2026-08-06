@@ -72,6 +72,7 @@ class Ayah {
   final String text;
   final String? translation;
   final String? audioUrl;
+  final int surahNumber;
 
   Ayah({
     required this.id,
@@ -80,13 +81,25 @@ class Ayah {
     required this.text,
     this.translation,
     this.audioUrl,
+    this.surahNumber = 0,
   });
+
+  /// URL audio par verset (récitateur Alafasy) construite à la demande.
+  String get computedAudioUrl {
+    if (audioUrl != null && audioUrl!.isNotEmpty) return audioUrl!;
+    final s = surahNumber.toString().padLeft(3, '0');
+    final a = numberInSurah.toString().padLeft(3, '0');
+    return 'https://cdn.islamic.network/quran/audio/128/ar.alafasy/$s$a.mp3';
+  }
 
   factory Ayah.fromJson(Map<String, dynamic> json, {String? translation}) {
     final verseKey = json['verse_key'] as String?;
     int verseNumber = 0;
+    int surahNum = 0;
     if (verseKey != null && verseKey.contains(':')) {
-      verseNumber = int.tryParse(verseKey.split(':').last) ?? 0;
+      final parts = verseKey.split(':');
+      surahNum = int.tryParse(parts.first) ?? 0;
+      verseNumber = int.tryParse(parts.last) ?? 0;
     } else {
       verseNumber = json['verse_number'] as int? ??
           json['numberInSurah'] as int? ??
@@ -105,6 +118,7 @@ class Ayah {
       text: text,
       translation: translation,
       audioUrl: json['audio']?['url'] as String? ?? json['audio'] as String?,
+      surahNumber: surahNum,
     );
   }
 }
@@ -121,4 +135,10 @@ class SurahDetail {
   });
 
   bool get hasBismillah => surah.id != 9 && bismillah != null;
+
+  /// URL du flux audio continu de la sourate entière (récitateur Alafasy).
+  String get fullSurahAudioUrl {
+    final s = surah.number.toString().padLeft(3, '0');
+    return 'https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/$s.mp3';
+  }
 }
