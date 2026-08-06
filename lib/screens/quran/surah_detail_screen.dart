@@ -82,7 +82,7 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
       await _player.setUrl(ayah.computedAudioUrl);
       await _player.play();
     } catch (_) {
-      context.showSnack('Lecture audio impossible');
+      if (mounted) context.showSnack('Lecture audio impossible');
     } finally {
       if (mounted) setState(() => _isLoadingAudio = false);
     }
@@ -98,7 +98,7 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
       await _player.setUrl(detail.fullSurahAudioUrl);
       await _player.play();
     } catch (_) {
-      context.showSnack('Lecture audio impossible');
+      if (mounted) context.showSnack('Lecture audio impossible');
     } finally {
       if (mounted) setState(() => _isLoadingAudio = false);
     }
@@ -166,7 +166,7 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
     return Scaffold(
       body: detailAsync.when(
         loading: () =>
-            const LoadingIndicator(message: 'Chargement de la sourate...'),
+        const LoadingIndicator(message: 'Chargement de la sourate...'),
         error: (e, _) => ErrorStateWidget(
           message: e.toString(),
           onRetry: () =>
@@ -217,16 +217,16 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
                             : () => _playFullSurah(detail),
                         icon: _isLoadingAudio && _isPlayingFullSurah
                             ? const SizedBox(
-                                width: 18,
-                                height: 18,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  color: Colors.white,
-                                ),
-                              )
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
                             : Icon(isAudioActive
-                                ? Icons.stop_rounded
-                                : Icons.play_arrow_rounded),
+                            ? Icons.stop_rounded
+                            : Icons.play_arrow_rounded),
                         label: Text(
                           isAudioActive
                               ? 'Arrêter la lecture'
@@ -278,7 +278,7 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
               ],
               SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) {
+                      (context, index) {
                     final ayah = displayAyahs[index];
                     final isPlaying = _playingAyahIndex == index && !_isPlayingFullSurah;
 
@@ -286,7 +286,7 @@ class _SurahDetailScreenState extends ConsumerState<SurahDetailScreen> {
                       ayah: ayah,
                       isPlaying: isPlaying,
                       isLoadingAudio:
-                          _isLoadingAudio && _playingAyahIndex == index,
+                      _isLoadingAudio && _playingAyahIndex == index,
                       onTap: () =>
                           _showAyahOptions(context, ayah, index, detail),
                       onPlayTap: () {
@@ -332,9 +332,9 @@ class _AyahTile extends StatelessWidget {
       child: Container(
         decoration: isPlaying
             ? BoxDecoration(
-                color: AppColors.emerald.withValues(alpha: 0.06),
-                borderRadius: BorderRadius.circular(12),
-              )
+          color: AppColors.emerald.withValues(alpha: 0.06),
+          borderRadius: BorderRadius.circular(12),
+        )
             : null,
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
@@ -361,19 +361,19 @@ class _AyahTile extends StatelessWidget {
                     IconButton(
                       icon: isLoadingAudio
                           ? const SizedBox(
-                              width: 18,
-                              height: 18,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: AppColors.emerald,
-                              ),
-                            )
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: AppColors.emerald,
+                        ),
+                      )
                           : Icon(
-                              isPlaying
-                                  ? Icons.pause_circle_filled_rounded
-                                  : Icons.play_circle_outline_rounded,
-                              color: AppColors.emerald,
-                            ),
+                        isPlaying
+                            ? Icons.pause_circle_filled_rounded
+                            : Icons.play_circle_outline_rounded,
+                        color: AppColors.emerald,
+                      ),
                       onPressed: onPlayTap,
                     ),
                     IconButton(
@@ -495,12 +495,12 @@ class _AyahOptionsSheet extends StatelessWidget {
                   style: context.textTheme.titleLarge),
             ),
             ..._languages.map((lang) => ListTile(
-                  title: Text(lang.$2),
-                  onTap: () {
-                    Navigator.pop(context);
-                    onTranslate(lang.$1);
-                  },
-                )),
+              title: Text(lang.$2),
+              onTap: () {
+                Navigator.pop(context);
+                onTranslate(lang.$1);
+              },
+            )),
             const SizedBox(height: 8),
           ],
         ),

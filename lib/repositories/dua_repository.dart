@@ -40,9 +40,9 @@ class DuaRepository {
     final q = query.toLowerCase();
     return all
         .where((d) =>
-            d.translation.toLowerCase().contains(q) ||
-            d.transliteration.toLowerCase().contains(q) ||
-            d.arabic.contains(q),)
+    d.translation.toLowerCase().contains(q) ||
+        d.transliteration.toLowerCase().contains(q) ||
+        d.arabic.contains(q),)
         .toList();
   }
 }
@@ -56,7 +56,7 @@ class HadithRepository {
   final LocalDataService _local;
 
   final Map<String, List<Map<String, dynamic>>> _booksCache = {};
-  final Map<String, Map<int, List<Hadith>>> _hadithsByBookCache = {};
+  final Map<String, List<Hadith>> _hadithsByBookCache = {};
 
   /// Récupère la liste des livres (chapitres) d'une collection.
   Future<List<Map<String, dynamic>>> getBooks(String collection) async {
