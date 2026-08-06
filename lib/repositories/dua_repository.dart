@@ -1,20 +1,42 @@
 import '../models/dua_model.dart';
 import '../models/hadith_model.dart';
+import '../services/hadith_dua_api_service.dart';
 import '../services/local_data_service.dart';
 
 class DuaRepository {
-  DuaRepository({LocalDataService? localDataService})
-      : _local = localDataService ?? LocalDataService();
+  DuaRepository({HadithDuaApiService? api, LocalDataService? localDataService})
+      : _api = api ?? HadithDuaApiService(),
+        _local = localDataService ?? LocalDataService();
 
+  final HadithDuaApiService _api;
   final LocalDataService _local;
+  List<DuaCategory>? _categories;
+  final Map<int, List<Dua>> _duasByCategory = {};
 
-  Future<List<Dua>> getAllDuas() => _local.getDuas();
+  /// Récupère toutes les catégories de douas depuis l'API Hisn al-Muslim.
+  Future<List<DuaCategory>> getCategories() async {
+    if (_categories != null) return _categories!;
+    final raw = await _api.getDuaCategories();
+    _categories = raw.map((c) => DuaCategory.fromJson(c)).toList();
+    return _categories!;
+  }
 
-  Future<List<Dua>> getDuasByCategory(DuaCategory category) =>
-      _local.getDuasByCategory(category.key);
+  /// Récupère les douas d'une catégorie depuis l'API.
+  Future<List<Dua>> getDuasByCategoryId(int categoryId) async {
+    if (_duasByCategory.containsKey(categoryId)) {
+      return _duasByCategory[categoryId]!;
+    }
+    final raw = await _api.getDuasByCategoryId(categoryId);
+    final duas = raw.map((d) => Dua.fromJson(d)).toList();
+    _duasByCategory[categoryId] = duas;
+    return duas;
+  }
+
+  /// Fallback: douas locaux (si l'API échoue).
+  Future<List<Dua>> getLocalDuas() => _local.getDuas();
 
   Future<List<Dua>> searchDuas(String query) async {
-    final all = await getAllDuas();
+    final all = await getLocalDuas();
     final q = query.toLowerCase();
     return all
         .where((d) =>
@@ -26,31 +48,49 @@ class DuaRepository {
 }
 
 class HadithRepository {
-  HadithRepository({LocalDataService? localDataService})
-      : _local = localDataService ?? LocalDataService();
+  HadithRepository({HadithDuaApiService? api, LocalDataService? localDataService})
+      : _api = api ?? HadithDuaApiService(),
+        _local = localDataService ?? LocalDataService();
 
+  final HadithDuaApiService _api;
   final LocalDataService _local;
 
-  Future<List<Hadith>> getAllHadiths() => _local.getHadiths();
+  final Map<String, List<Map<String, dynamic>>> _booksCache = {};
+  final Map<String, Map<int, List<Hadith>>> _hadithsByBookCache = {};
 
-  Future<List<Hadith>> searchHadiths(String query) async {
-    final all = await getAllHadiths();
-    final q = query.toLowerCase();
-    return all
-        .where((h) =>
-            h.english.toLowerCase().contains(q) ||
-            h.theme.toLowerCase().contains(q) ||
-            h.narrator.toLowerCase().contains(q),)
-        .toList();
+  /// Récupère la liste des livres (chapitres) d'une collection.
+  Future<List<Map<String, dynamic>>> getBooks(String collection) async {
+    if (_booksCache.containsKey(collection)) {
+      return _booksCache[collection]!;
+    }
+    final books = await _api.getBooks(collection);
+    _booksCache[collection] = books;
+    return books;
   }
 
-  Future<List<Hadith>> getByTheme(String theme) async {
-    final all = await getAllHadiths();
-    return all.where((h) => h.theme == theme).toList();
+  /// Récupère les hadiths d'un livre spécifique.
+  Future<List<Hadith>> getHadithsByBook({
+    required String collection,
+    required int bookNumber,
+  }) async {
+    final key = '${collection}_$bookNumber';
+    if (_hadithsByBookCache.containsKey(key)) {
+      return _hadithsByBookCache[key]!;
+    }
+    final raw = await _api.getHadithsByBook(
+      collection: collection,
+      bookNumber: bookNumber,
+    );
+    final hadiths = raw.map((h) => Hadith.fromJson(h)).toList();
+    _hadithsByBookCache[key] = hadiths;
+    return hadiths;
   }
+
+  /// Fallback: hadiths locaux.
+  Future<List<Hadith>> getLocalHadiths() => _local.getHadiths();
 
   Future<List<String>> getThemes() async {
-    final all = await getAllHadiths();
+    final all = await _local.getHadiths();
     return all.map((h) => h.theme).toSet().toList()..sort();
   }
 }

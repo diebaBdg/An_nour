@@ -18,11 +18,11 @@ class Dua {
   factory Dua.fromJson(Map<String, dynamic> json) {
     return Dua(
       id: json['id'] as String,
-      category: json['category'] as String,
-      arabic: json['arabic'] as String,
-      transliteration: json['transliteration'] as String,
-      translation: json['translation'] as String,
-      reference: json['reference'] as String,
+      category: json['category'] as String? ?? 'Divers',
+      arabic: json['arabic'] as String? ?? '',
+      transliteration: json['transliteration'] as String? ?? '',
+      translation: json['translation'] as String? ?? '',
+      reference: json['reference'] as String? ?? '',
     );
   }
 
@@ -36,19 +36,23 @@ class Dua {
       };
 }
 
-enum DuaCategory {
-  morning('Matin', 'morning'),
-  evening('Soir', 'evening'),
-  travel('Voyage', 'travel'),
-  illness('Maladie', 'illness'),
-  food('Nourriture', 'food'),
-  sleep('Sommeil', 'sleep'),
-  mosque('Mosquée', 'mosque'),
-  protection('Protection', 'protection'),
-  forgiveness('Pardon', 'forgiveness'),
-  misc('Divers', 'misc');
+/// Catégorie d'invocations (Hisn al-Muslim).
+class DuaCategory {
+  const DuaCategory({
+    required this.id,
+    required this.name,
+    required this.icon,
+  });
 
-  const DuaCategory(this.label, this.key);
-  final String label;
-  final String key;
+  final int id;
+  final String name;
+  final String icon;
+
+  factory DuaCategory.fromJson(Map<String, dynamic> json) {
+    return DuaCategory(
+      id: json['id'] as int? ?? 0,
+      name: json['name'] as String? ?? '',
+      icon: json['icon'] as String? ?? '',
+    );
+  }
 }

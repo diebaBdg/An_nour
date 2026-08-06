@@ -7,21 +7,59 @@ import '../repositories/dua_repository.dart';
 final duaRepositoryProvider = Provider<DuaRepository>((ref) => DuaRepository());
 final hadithRepositoryProvider =
     Provider<HadithRepository>((ref) => HadithRepository());
-final quoteRepositoryProvider = Provider<QuoteRepository>((ref) {
-  return QuoteRepository();
+final quoteRepositoryProvider =
+    Provider<QuoteRepository>((ref) => QuoteRepository());
+
+// ===== Hadiths =====
+
+/// Collections disponibles.
+final hadithCollectionsProvider = Provider<List<HadithCollection>>((ref) {
+  return [
+    HadithCollection(id: 'bukhari', name: 'Sahih al-Bukhari', hadithCount: 7563),
+    HadithCollection(id: 'muslim', name: 'Sahih Muslim', hadithCount: 7470),
+  ];
 });
 
-final duasProvider = FutureProvider<List<Dua>>((ref) async {
-  return ref.watch(duaRepositoryProvider).getAllDuas();
+/// Liste des livres (chapitres) d'une collection.
+final hadithBooksProvider =
+    FutureProvider.family<List<HadithBookInfo>, String>((ref, collection) async {
+  final books = await ref.watch(hadithRepositoryProvider).getBooks(collection);
+  return books
+      .map((b) => HadithBookInfo(
+            number: b['bookNumber'] as int? ?? 0,
+            name: b['bookName'] as String? ?? '',
+          ))
+      .toList();
 });
 
-final duasByCategoryProvider =
-    FutureProvider.family<List<Dua>, DuaCategory>((ref, category) async {
-  return ref.watch(duaRepositoryProvider).getDuasByCategory(category);
+/// Hadiths d'un livre spécifique.
+final hadithsByBookProvider = FutureProvider.family<
+    List<Hadith>,
+    ({String collection, int bookNumber})>((ref, params) async {
+  return ref.watch(hadithRepositoryProvider).getHadithsByBook(
+        collection: params.collection,
+        bookNumber: params.bookNumber,
+      );
 });
+
+// ===== Douas =====
+
+/// Catégories de douas depuis l'API Hisn al-Muslim.
+final duaCategoriesProvider =
+    FutureProvider<List<DuaCategory>>((ref) async {
+  return ref.watch(duaRepositoryProvider).getCategories();
+});
+
+/// Douas d'une catégorie spécifique.
+final duasByApiCategoryProvider =
+    FutureProvider.family<List<Dua>, int>((ref, categoryId) async {
+  return ref.watch(duaRepositoryProvider).getDuasByCategoryId(categoryId);
+});
+
+// ===== Legacy (compatibilité) =====
 
 final hadithsProvider = FutureProvider<List<Hadith>>((ref) async {
-  return ref.watch(hadithRepositoryProvider).getAllHadiths();
+  return ref.watch(hadithRepositoryProvider).getLocalHadiths();
 });
 
 final hadithThemesProvider = FutureProvider<List<String>>((ref) async {
@@ -33,5 +71,22 @@ final dailyQuoteProvider = FutureProvider<DailyQuote>((ref) async {
 });
 
 final duaSearchProvider = StateProvider<String>((ref) => '');
-
 final hadithSearchProvider = StateProvider<String>((ref) => '');
+
+/// Modèles simples pour les vues.
+class HadithCollection {
+  const HadithCollection({
+    required this.id,
+    required this.name,
+    required this.hadithCount,
+  });
+  final String id;
+  final String name;
+  final int hadithCount;
+}
+
+class HadithBookInfo {
+  const HadithBookInfo({required this.number, required this.name});
+  final int number;
+  final String name;
+}

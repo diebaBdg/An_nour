@@ -35,6 +35,29 @@ class Hadith {
   String get reference => '$collection $bookNumber:$hadithNumber';
 }
 
+/// Un livre (chapitre) dans une collection de hadiths.
+class HadithBook {
+  const HadithBook({
+    required this.number,
+    required this.name,
+    required this.hadithCount,
+  });
+
+  final int number;
+  final String name;
+  final int hadithCount;
+
+  factory HadithBook.fromJson(Map<String, dynamic> json) {
+    return HadithBook(
+      number: json['bookNumber'] as int? ?? json['number'] as int? ?? 0,
+      name: (json['bookName'] as String? ?? json['name'] as String? ?? '')
+          .replaceAll('Kitab: ', '')
+          .trim(),
+      hadithCount: json['hadithCount'] as int? ?? json['hadithsNumber'] as int? ?? 0,
+    );
+  }
+}
+
 class DailyQuote {
   const DailyQuote({
     required this.text,
