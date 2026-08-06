@@ -13,21 +13,48 @@ class DuaRepository {
   List<DuaCategory>? _categories;
   final Map<int, List<Dua>> _duasByCategory = {};
 
-  /// Récupère toutes les catégories de douas depuis l'API Hisn al-Muslim.
+  static const _categoryMeta = [
+    {'id': 0, 'name': 'Du matin', 'icon': 'morning'},
+    {'id': 1, 'name': 'Du soir', 'icon': 'evening'},
+    {'id': 2, 'name': 'Voyage', 'icon': 'travel'},
+    {'id': 3, 'name': 'Maladie', 'icon': 'illness'},
+    {'id': 4, 'name': 'Repas', 'icon': 'food'},
+    {'id': 5, 'name': 'Sommeil', 'icon': 'sleep'},
+    {'id': 6, 'name': 'Mosquée', 'icon': 'mosque'},
+    {'id': 7, 'name': 'Protection', 'icon': 'protection'},
+    {'id': 8, 'name': 'Pardon', 'icon': 'forgiveness'},
+    {'id': 9, 'name': 'Divers', 'icon': 'misc'},
+  ];
+
+  static const _categoryKeyById = {
+    0: 'morning',
+    1: 'evening',
+    2: 'travel',
+    3: 'illness',
+    4: 'food',
+    5: 'sleep',
+    6: 'mosque',
+    7: 'protection',
+    8: 'forgiveness',
+    9: 'misc',
+  };
+
+  /// Récupère toutes les catégories de douas (depuis les données locales).
   Future<List<DuaCategory>> getCategories() async {
     if (_categories != null) return _categories!;
-    final raw = await _api.getDuaCategories();
-    _categories = raw.map((c) => DuaCategory.fromJson(c)).toList();
+    _categories = _categoryMeta
+        .map((c) => DuaCategory.fromJson(c))
+        .toList();
     return _categories!;
   }
 
-  /// Récupère les douas d'une catégorie depuis l'API.
+  /// Récupère les douas d'une catégorie (depuis les données locales).
   Future<List<Dua>> getDuasByCategoryId(int categoryId) async {
     if (_duasByCategory.containsKey(categoryId)) {
       return _duasByCategory[categoryId]!;
     }
-    final raw = await _api.getDuasByCategoryId(categoryId);
-    final duas = raw.map((d) => Dua.fromJson(d)).toList();
+    final categoryKey = _categoryKeyById[categoryId] ?? 'misc';
+    final duas = await _local.getDuasByCategory(categoryKey);
     _duasByCategory[categoryId] = duas;
     return duas;
   }

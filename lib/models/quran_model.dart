@@ -139,6 +139,6 @@ class SurahDetail {
   /// URL du flux audio continu de la sourate entière (récitateur Alafasy).
   String get fullSurahAudioUrl {
     final s = surah.number.toString().padLeft(3, '0');
-    return 'https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/$s.mp3';
+    return 'https://download.quranicaudio.com/quran/alafasy/complete-surahs/$s.mp3';
   }
 }

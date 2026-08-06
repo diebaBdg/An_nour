@@ -43,9 +43,10 @@ class AiChatService {
 
   late final Dio _dio;
 
-  /// URL de l'edge function construite à partir des variables d'environnement.
-  static const _supabaseUrl = String.fromEnvironment('SUPABASE_URL');
-  static const _anonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
+  static const _supabaseUrl =
+      'https://gacfvryayuteekdecydd.supabase.co';
+  static const _anonKey =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhY2Z2cnlheXV0ZWVrZGVjeWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMjg3MzYsImV4cCI6MjEwMTYwNDczNn0.1VY0UlT37uGXE4LqYGN5Wv4_2sKYKfmKXfDqKtP_ZDA';
 
   String get _functionUrl => '$_supabaseUrl/functions/v1/ai-chat';
 
