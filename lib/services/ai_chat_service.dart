@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../core/errors/app_exceptions.dart';
 
-/// Rôle d'un message dans la conversation.
 enum ChatRole { user, assistant }
 
-/// Un message du chat IA.
 class ChatMessage {
   const ChatMessage({
     required this.role,
@@ -19,14 +18,26 @@ class ChatMessage {
   final DateTime? timestamp;
 
   Map<String, dynamic> toJson() => {
-        'role': role == ChatRole.user ? 'user' : 'assistant',
-        'content': content,
-      };
+    'role': role == ChatRole.user ? 'user' : 'assistant',
+    'content': content,
+  };
 }
 
-/// Service qui appelle l'edge function Supabase `ai-chat` (proxy OpenAI).
 class AiChatService {
+  static String get _supabaseUrl => dotenv.env['SUPABASE_URL'] ?? '';
+  static String get _anonKey => dotenv.env['SUPABASE_ANON_KEY'] ?? '';
+
+  static void ensureInitialized() {
+    if (_supabaseUrl.isEmpty || _anonKey.isEmpty) {
+      throw Exception(
+        'Supabase credentials not found. Please set SUPABASE_URL and SUPABASE_ANON_KEY in .env',
+      );
+    }
+  }
+
   AiChatService() {
+    ensureInitialized();
+
     _dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(seconds: 30),
@@ -43,14 +54,8 @@ class AiChatService {
 
   late final Dio _dio;
 
-  static const _supabaseUrl =
-      'https://gacfvryayuteekdecydd.supabase.co';
-  static const _anonKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhY2Z2cnlheXV0ZWVrZGVjeWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMjg3MzYsImV4cCI6MjEwMTYwNDczNn0.1VY0UlT37uGXE4LqYGN5Wv4_2sKYKfmKXfDqKtP_ZDA';
-
   String get _functionUrl => '$_supabaseUrl/functions/v1/ai-chat';
 
-  /// Envoie l'historique des messages et retourne la réponse de l'IA.
   Future<String> sendMessage(List<ChatMessage> messages) async {
     try {
       final response = await _dio.post<dynamic>(
