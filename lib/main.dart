@@ -1,5 +1,7 @@
+import 'package:an_nour/services/ai_chat_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -18,6 +20,10 @@ Future<void> main() async {
   await Hive.initFlutter();
   await StorageService.init();
   await NotificationService.init();
+
+  await dotenv.load(fileName: ".env");
+
+  AiChatService.ensureInitialized();
 
   runApp(
     const ProviderScope(
